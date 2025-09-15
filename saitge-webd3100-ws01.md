@@ -1,3 +1,4 @@
+## WEBD3100 - Workshop 01
 ### Part 1: Course Introduction
 Web design is the art and science of creating websites. It involves a blend of **aesthetics, functionality, and user experience (UX)**. A well-designed website is not just visually appealing; it's also easy to use and accessible to everyone. In this course, you'll learn the principles behind creating effective and inclusive web experiences.
 

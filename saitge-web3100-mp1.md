@@ -14,7 +14,8 @@
 * Understanding of usability heuristics
 * Introduction to accessibility standards
 * Basic familiarity with web interfaces
-  **Outcomes:**
+
+**Outcomes:**
 * Apply design principles to web design fundamentals in terms of content presentation
 * Design mock-ups of user interfaces based on requirements and specifications
   **Assignment Points:** 10%

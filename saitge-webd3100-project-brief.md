@@ -2,7 +2,7 @@
 
 ## 1. Client Overview
 
-**CORAH (Centre of Rural and Aging Health)** is a non-profit organization dedicated to improving the quality of life for seniors in rural communities. CORAH provides health services, education, and community engagement opportunities, with a strong emphasis on accessibility, inclusivity, and usability for older adults.
+**CORAH (Centre of Rural and Aging Health)** is a non-profit organization dedicated to improving the quality of life for seniors in rural communities. CORAH promotes health and wellbeing services, education, and community engagement opportunities, with a strong emphasis on accessibility, inclusivity, and usability for older adults.
 
 ---
 

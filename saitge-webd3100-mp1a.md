@@ -4,10 +4,10 @@
 
 ## **1. Assignment Details**
 
-* **Course Code:** WEBD 1000 – Web Design Fundamentals
+* **Course Code:** WEBD 3100 – Web Design Fundamentals
 * **Assignment Title:** MP1A – Website Evaluation Report
 * **Type:** Mini-Project 1A (Individual)
-* **Weight:** Part of Mini-Project 1 (Planning & Research) – 10% total
+* **Weight:** See Brightspace
 * **Estimated Time:** 2–4 hours
 * **Due Date:** See Brightspace
 * **Submission Format:** Written Report (Text, MD or Word) submitted via LMS
@@ -131,7 +131,7 @@ Your report should include:
 ## **9. Submission Guidelines**
 
 * Submit via the LMS before the due date.
-* File name format: `Lastname_Firstname_WEBD1000_MP1A.pdf`
+* File name format: `student_number_WEBD3100_MP1A.pdf`
 * Late submissions follow standard academic policy (see below).
 
 ---

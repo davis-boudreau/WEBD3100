@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>OKLCH Ramp Builder + Live Preview (Cards • Modal • Tabs • Accordion • Sliders)</title>
+<title>OKLCH Ramp Builder v3 + Live Preview (Cards • Modal • Tabs • Accordion • Sliders)</title>
 <style>
   :root {
     --bg: #0b0c10;
@@ -135,17 +135,71 @@
   .modal header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
   .modal header h3 { margin: 0; color: var(--preview-modal-heading, var(--preview-color-brand)); }
   .modal footer { display: flex; gap: 10px; justify-content: end; margin-top: 12px; }
-
-  .button.primary { --btn-bg: var(--preview-modal-primary-bg); --btn-fg: var(--preview-modal-primary-fg); }
+  .button.primary   { --btn-bg: var(--preview-modal-primary-bg);   --btn-fg: var(--preview-modal-primary-fg); }
   .button.secondary { --btn-bg: var(--preview-modal-secondary-bg); --btn-fg: var(--preview-modal-secondary-fg); }
 
-  /* Sliders */
-  .range-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 8px; }
-  input[type="range"] { width: 100%; background: transparent; }
-  input[type="range"]::-webkit-slider-runnable-track { height: 6px; border-radius: 999px; background: var(--preview-color-elevated); border: 1px solid var(--preview-color-border); }
-  input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; margin-top: -6px; width: 18px; height: 18px; border-radius: 50%; background: var(--preview-color-brand); border: 1px solid color-mix(in oklab, var(--preview-color-brand) 65%, black); }
-  input[type="range"]::-moz-range-track { height: 6px; border-radius: 999px; background: var(--preview-color-elevated); border: 1px solid var(--preview-color-border); }
-  input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--preview-color-brand); border: 1px solid color-mix(in oklab, var(--preview-color-brand) 65%, black); }
+  /* === System Sliders (brand/neutral aware) === */
+  input[type="range"].slider {
+    --p: 50; /* 0..100, set via JS */
+    --slider-track: var(--preview-color-elevated);
+    --slider-border: var(--preview-color-border);
+    --slider-progress: var(--preview-color-brand);
+    --slider-thumb: var(--preview-color-brand);
+    --slider-thumb-border: color-mix(in oklab, var(--preview-color-brand) 65%, black);
+    --slider-focus: var(--preview-color-brand);
+
+    width: 100%;
+    height: 28px;
+    background: transparent;
+    cursor: pointer;
+    appearance: none;
+  }
+  /* Track (WebKit) */
+  input[type="range"].slider::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 999px;
+    border: 1px solid var(--slider-border);
+    background:
+      linear-gradient(var(--slider-progress), var(--slider-progress)) 0 / calc(var(--p) * 1%) 100% no-repeat,
+      var(--slider-track);
+  }
+  /* Thumb (WebKit) */
+  input[type="range"].slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--slider-thumb);
+    border: 1px solid var(--slider-thumb-border);
+    margin-top: -7px; /* centers on 6px track */
+    transition: transform .12s ease;
+  }
+  input[type="range"].slider:hover::-webkit-slider-thumb { transform: scale(1.06); }
+  input[type="range"].slider:active::-webkit-slider-thumb { transform: scale(1.10); }
+  /* Track (Firefox) */
+  input[type="range"].slider::-moz-range-track {
+    height: 6px;
+    border-radius: 999px;
+    border: 1px solid var(--slider-border);
+    background:
+      linear-gradient(var(--slider-progress), var(--slider-progress)) 0 / calc(var(--p) * 1%) 100% no-repeat,
+      var(--slider-track);
+  }
+  /* Thumb (Firefox) */
+  input[type="range"].slider::-moz-range-thumb {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--slider-thumb);
+    border: 1px solid var(--slider-thumb-border);
+    transition: transform .12s ease;
+  }
+  input[type="range"].slider:hover::-moz-range-thumb { transform: scale(1.06); }
+  input[type="range"].slider:active::-moz-range-thumb { transform: scale(1.10); }
+  /* Focus ring */
+  input[type="range"].slider:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--slider-focus) 35%, transparent);
+    border-radius: 12px;
+  }
+  input[type="range"].slider:disabled { opacity: .6; cursor: not-allowed; }
 
   .preview-footer { padding: 12px 16px; border-top: 1px solid var(--preview-color-border); background: var(--preview-color-surface); color: var(--preview-color-text-muted); }
   .tiny { font-size: 12px; }
@@ -238,173 +292,173 @@
       </div>
 
       <!-- RIGHT: Live Preview -->
-<div class="preview">
-  <!-- Toolbar -->
-  <div class="card preview-toolbar">
-    <div><strong>Live Preview</strong> <span class="muted">updates when you Generate</span></div>
-    <div class="row">
-      <button id="lightBtn" class="btn secondary" type="button">Light</button>
-      <button id="darkBtn" class="btn secondary" type="button">Dark</button>
-      <span class="chip" id="brandChip">Brand: #7B458F</span>
-    </div>
-  </div>
-
-  <!-- Canvas -->
-  <div class="preview-canvas" id="previewRoot" data-theme="light">
-
-    <!-- Header (brand + nav + modal trigger) -->
-    <div class="preview-header">
-      <div class="brand"><span class="chip">◆ Brand</span></div>
-      <nav class="nav" aria-label="Primary">
-        <a href="#" class="nav-link" aria-current="page">Home</a>
-        <a href="#" class="nav-link">Products</a>
-        <a href="#" class="nav-link">Docs</a>
-      </nav>
-      <button class="button button--outline" type="button" id="openModalBtn">Open Modal</button>
-    </div>
-
-    <!-- Hero -->
-    <div class="hero">
-      <h2>OKLCH Colors in Action</h2>
-      <p>This preview uses <code>brand-600</code> as primary, with hover/active from <code>700/800</code> and neutrals for surfaces.</p>
-      <div class="hero-actions">
-        <button class="button">Primary</button>
-        <button class="button button--soft">Soft</button>
-        <button class="button button--outline">Outline</button>
-      </div>
-    </div>
-
-    <!-- UI Patterns Section -->
-    <div class="section">
-      <div class="grid3">
-        <!-- Cards demo -->
-        <div class="card">
-          <h3>Cards</h3>
-          <div class="grid3">
-            <div class="card">
-              <strong>Card A</strong>
-              <p class="muted">Uses surface, border, text tokens.</p>
-              <button class="button small">Action</button>
-            </div>
-            <div class="card">
-              <strong>Card B</strong>
-              <p class="muted">Hover and focus keep contrast.</p>
-              <button class="button button--soft small">Secondary</button>
-            </div>
-            <div class="card">
-              <strong>Card C</strong>
-              <p class="muted">Outline variant stays on-brand.</p>
-              <button class="button button--outline small">Outline</button>
-            </div>
+      <div class="preview">
+        <!-- Toolbar -->
+        <div class="card preview-toolbar">
+          <div><strong>Live Preview</strong> <span class="muted">updates when you Generate</span></div>
+          <div class="row">
+            <button id="lightBtn" class="btn secondary" type="button">Light</button>
+            <button id="darkBtn" class="btn secondary" type="button">Dark</button>
+            <span class="chip" id="brandChip">Brand: #7B458F</span>
           </div>
         </div>
 
-        <!-- Tabs demo -->
-        <div class="grid3">
-          <div class="card">
-            <h3>Tabs</h3>
-            <div class="tabs">
-                <div class="tablist" role="tablist" aria-label="Sample tabs">
-                <button class="tab" role="tab" aria-selected="true" aria-controls="tab1" id="t1">Overview</button>
-                <button class="tab" role="tab" aria-selected="false" aria-controls="tab2" id="t2" tabindex="-1">Details</button>
-                <button class="tab" role="tab" aria-selected="false" aria-controls="tab3" id="t3" tabindex="-1">Reviews</button>
-                </div>
-                <div id="tab1" class="tabpanel" role="tabpanel" aria-labelledby="t1">
-                <p class="muted">Overview content uses body text tokens and surfaces.</p>
-                </div>
-                <div id="tab2" class="tabpanel" role="tabpanel" hidden aria-labelledby="t2">
-                <p class="muted">Details content—check contrast in both themes.</p>
-                </div>
-                <div id="tab3" class="tabpanel" role="tabpanel" hidden aria-labelledby="t3">
-                <p class="muted">Reviews content—links <a href="#">inherit brand color</a>.</p>
-                </div>
+        <!-- Canvas -->
+        <div class="preview-canvas" id="previewRoot" data-theme="light">
+
+          <!-- Header (brand + nav + modal trigger) -->
+          <div class="preview-header">
+            <div class="brand"><span class="chip">◆ Brand</span></div>
+            <nav class="nav" aria-label="Primary">
+              <a href="#" class="nav-link" aria-current="page">Home</a>
+              <a href="#" class="nav-link">Products</a>
+              <a href="#" class="nav-link">Docs</a>
+            </nav>
+            <button class="button button--outline" type="button" id="openModalBtn">Open Modal</button>
+          </div>
+
+          <!-- Hero -->
+          <div class="hero">
+            <h2>OKLCH Colors in Action</h2>
+            <p>This preview uses <code>brand-600</code> as primary, with hover/active from <code>700/800</code> and neutrals for surfaces.</p>
+            <div class="hero-actions">
+              <button class="button">Primary</button>
+              <button class="button button--soft">Soft</button>
+              <button class="button button--outline">Outline</button>
             </div>
           </div>
-          <!-- Accordion + Sliders -->
-          <div class="card">
-          <h3>Accordion & Sliders</h3>
-          <div class="accordion" id="acc">
-            <div class="accordion-item" aria-expanded="false">
-              <button class="accordion-header" aria-controls="p1" id="h1">
-                Color Settings <span aria-hidden="true">▸</span>
-              </button>
-              <div class="accordion-panel" id="p1" role="region" aria-labelledby="h1">
-                <div class="range-row">
-                  <label class="label tiny">Saturation (demo)</label>
-                  <input type="range" min="0" max="100" value="60" />
-                  <output class="muted tiny">60</output>
-                </div>
-                <div class="range-row">
-                  <label class="label tiny">Emphasis (demo)</label>
-                  <input type="range" min="0" max="100" value="30" />
-                  <output class="muted tiny">30</output>
+
+          <!-- UI Patterns -->
+          <div class="section">
+            <div class="grid3">
+              <!-- Cards demo -->
+              <div class="card">
+                <h3>Cards</h3>
+                <div class="grid3">
+                  <div class="card">
+                    <strong>Card A</strong>
+                    <p class="muted">Uses surface, border, text tokens.</p>
+                    <button class="button small">Action</button>
+                  </div>
+                  <div class="card">
+                    <strong>Card B</strong>
+                    <p class="muted">Hover and focus keep contrast.</p>
+                    <button class="button button--soft small">Secondary</button>
+                  </div>
+                  <div class="card">
+                    <strong>Card C</strong>
+                    <p class="muted">Outline variant stays on-brand.</p>
+                    <button class="button button--outline small">Outline</button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="accordion-item" aria-expanded="false">
-              <button class="accordion-header" aria-controls="p2" id="h2">
-                Layout Options <span aria-hidden="true">▸</span>
-              </button>
-              <div class="accordion-panel" id="p2" role="region" aria-labelledby="h2">
-                <p class="muted tiny">This content shows body contrast on elevated surfaces.</p>
+              <!-- Tabs demo -->
+              <div class="card">
+                <h3>Tabs</h3>
+                <div class="tabs">
+                  <div class="tablist" role="tablist" aria-label="Sample tabs">
+                    <button class="tab" role="tab" aria-selected="true" aria-controls="tab1" id="t1">Overview</button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="tab2" id="t2" tabindex="-1">Details</button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="tab3" id="t3" tabindex="-1">Reviews</button>
+                  </div>
+                  <div id="tab1" class="tabpanel" role="tabpanel" aria-labelledby="t1">
+                    <p class="muted">Overview content uses body text tokens and surfaces.</p>
+                  </div>
+                  <div id="tab2" class="tabpanel" role="tabpanel" hidden aria-labelledby="t2">
+                    <p class="muted">Details content—check contrast in both themes.</p>
+                  </div>
+                  <div id="tab3" class="tabpanel" role="tabpanel" hidden aria-labelledby="t3">
+                    <p class="muted">Reviews content—links <a href="#">inherit brand color</a>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accordion + Sliders -->
+              <div class="card">
+                <h3>Accordion & Sliders</h3>
+                <div class="accordion" id="acc">
+                  <div class="accordion-item" aria-expanded="false">
+                    <button class="accordion-header" aria-controls="p1" id="h1">
+                      Color Settings <span aria-hidden="true">▸</span>
+                    </button>
+                    <div class="accordion-panel" id="p1" role="region" aria-labelledby="h1">
+                      <div class="range-row">
+                        <label class="label tiny">Saturation (demo)</label>
+                        <input class="slider" type="range" min="0" max="100" value="60" />
+                        <output class="muted tiny">60</output>
+                      </div>
+                      <div class="range-row">
+                        <label class="label tiny">Emphasis (demo)</label>
+                        <input class="slider" type="range" min="0" max="100" value="30" />
+                        <output class="muted tiny">30</output>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item" aria-expanded="false">
+                    <button class="accordion-header" aria-controls="p2" id="h2">
+                      Layout Options <span aria-hidden="true">▸</span>
+                    </button>
+                    <div class="accordion-panel" id="p2" role="region" aria-labelledby="h2">
+                      <p class="muted tiny">This content shows body contrast on elevated surfaces.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Notes -->
+              <div class="card">
+                <h3>Notes</h3>
+                <p class="muted">Inline <a href="#">link</a> uses brand color; nav links behave like controls.</p>
+              </div>
+
+              <!-- Badges -->
+              <div class="card">
+                <h3>Badges</h3>
+                <div class="actions" style="flex-wrap:wrap">
+                  <span class="badge badge--brand">Brand</span>
+                  <span class="badge badge--muted">Muted</span>
+                  <span class="badge badge--success">Success</span>
+                  <span class="badge badge--warning">Warning</span>
+                  <span class="badge badge--danger">Danger</span>
+                </div>
+                <p class="muted tiny" style="margin-top:8px">
+                  These use semantic tokens mapped from your generated ramps, so they auto-update in light/dark themes.
+                </p>
               </div>
             </div>
           </div>
-          </div>
-          <!-- Notes -->
-          <div class="card">
-            <h3>Notes</h3>
-            <p class="muted">Inline <a href="#">link</a> uses brand color; nav links behave like controls.</p>
-          </div>
-          
-        </div>
-        <!-- Badges (moved from hero) -->
-          <div class="card">
-            <h3>Badges</h3>
-            <div class="actions" style="flex-wrap:wrap">
-                <span class="badge badge--brand">Brand</span>
-                <span class="badge badge--muted">Muted</span>
-                <span class="badge badge--success">Success</span>
-                <span class="badge badge--warning">Warning</span>
-                <span class="badge badge--danger">Danger</span>
+
+          <!-- Swatches -->
+          <div class="section">
+            <div class="grid3">
+              <div class="card">
+                <h3>Brand Swatches</h3>
+                <div id="previewBrandSwatches" class="swatches"></div>
+              </div>
+              <div class="card">
+                <h3>Neutral Swatches</h3>
+                <div id="previewNeutralSwatches" class="swatches"></div>
+              </div>
+              <div class="card">
+                <h3>Palette Tips</h3>
+                <ul class="muted tiny" style="margin:0; padding-left: 1rem">
+                  <li>Use brand-600 for action fills; 700/800 for hover/active.</li>
+                  <li>Use neutral-50/100 surfaces in light; 800/900 in dark.</li>
+                  <li>Ensure text contrast ≥ 4.5:1 (normal text).</li>
+                </ul>
+              </div>
             </div>
-            <p class="muted tiny" style="margin-top:8px">
-                These use semantic tokens mapped from your generated ramps, so they auto-update in light/dark themes.
-            </p>
           </div>
-          <div class="card">
-            <h3>Palette Tips</h3>
-            <ul class="muted tiny" style="margin:0; padding-left: 1rem">
-                <li>Use brand-600 for action fills; 700/800 for hover/active.</li>
-                <li>Use neutral-50/100 surfaces in light; 800/900 in dark.</li>
-                <li>Ensure text contrast ≥ 4.5:1 (normal text).</li>
-            </ul>
-          </div>
-      </div>
-    </div>
 
-    <!-- Swatches -->
-    <div class="section">
-      <div class="grid3">
-        <div class="card">
-          <h3>Brand Swatches</h3>
-          <div id="previewBrandSwatches" class="swatches"></div>
-        </div>
-        <div class="card">
-          <h3>Neutral Swatches</h3>
-          <div id="previewNeutralSwatches" class="swatches"></div>
+          <!-- Footer -->
+          <div class="preview-footer">
+            © 2025 • WCAG-aware tokens • OKLCH ramps • semantic mapping • cards • modal • tabs • accordion • sliders
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Footer -->
-    <div class="preview-footer">
-      © 2025 • WCAG-aware tokens • OKLCH ramps • semantic mapping • cards • modal • tabs • accordion • sliders
-    </div>
-  </div>
-</div>
-
   </div>
 
 <!-- dynamic token CSS goes in this <style> via JS -->
@@ -595,15 +649,14 @@ ${neutral.map(x=>`  ${x.token}: ${x.hex};`).join('\n')}
   --preview-text-on-brand-hover: #ffffff;
   --preview-text-on-brand-soft: ${by['--brand-700']};
 
-  /* Modal guidance */
-  --preview-modal-surface: ${gy['--gray-100']};
-  --preview-modal-text: ${gy['--gray-900']};
-  --preview-modal-heading: ${by['--brand-500']};
-  --preview-modal-primary-bg: ${by['--brand-600']};
+  /* Modal guidance (light) */
+  --preview-modal-surface: ${gy['--gray-100']};     /* neutral/100 */
+  --preview-modal-text: ${gy['--gray-900']};        /* neutral/900 */
+  --preview-modal-heading: ${by['--brand-500']};    /* brand/500 */
+  --preview-modal-primary-bg: ${by['--brand-600']}; /* brand/600 */
   --preview-modal-primary-fg: #ffffff;
-  --preview-modal-secondary-bg: ${gy['--gray-400']};
+  --preview-modal-secondary-bg: ${gy['--gray-400']};/* neutral/400 */
   --preview-modal-secondary-fg: ${gy['--gray-900']};
-
   --preview-success: #2E8B57; --preview-success-soft: #E9FFF5;
   --preview-warning: #B8860B; --preview-warning-soft: #FFF7E6;
   --preview-danger:  #C03631; --preview-danger-soft:  #FFEDEE;
@@ -626,15 +679,14 @@ ${neutral.map(x=>`  ${x.token}: ${x.hex};`).join('\n')}
   --preview-text-on-brand-hover: #ffffff;
   --preview-text-on-brand-soft: ${by['--brand-900']};
 
-  /* Modal guidance */
-  --preview-modal-surface: ${gy['--gray-700']};
-  --preview-modal-text: ${gy['--gray-25']};
-  --preview-modal-heading: ${by['--brand-500']};
-  --preview-modal-primary-bg: ${by['--brand-600']};
+  /* Modal guidance (dark) */
+  --preview-modal-surface: ${gy['--gray-900']};     /* neutral/900 */
+  --preview-modal-text: ${gy['--gray-25']};         /* neutral/25 */
+  --preview-modal-heading: ${by['--brand-500']};    /* brand/500 */
+  --preview-modal-primary-bg: ${by['--brand-600']}; /* brand/600 */
   --preview-modal-primary-fg: #ffffff;
-  --preview-modal-secondary-bg: ${gy['--gray-400']};
+  --preview-modal-secondary-bg: ${gy['--gray-400']};/* neutral/400 */
   --preview-modal-secondary-fg: ${gy['--gray-25']};
-
   --preview-success: #5ED0A2; --preview-success-soft: color-mix(in oklab, #5ED0A2 14%, transparent);
   --preview-warning: #FFC472; --preview-warning-soft: color-mix(in oklab, #FFC472 14%, transparent);
   --preview-danger:  #FF8C8A; --preview-danger-soft: color-mix(in oklab, #FF8C8A 14%, transparent);
@@ -658,12 +710,13 @@ ${neutral.map(x=>`  ${x.token}: ${x.hex};`).join('\n')}
 function downloadJSON(dataObj){
   const blob = new Blob([JSON.stringify(dataObj, null, 2)], {type:"application/json"});
   const url = URL.createObjectURL(blob);
-  downloadLink.href = url;
-  downloadLink.setAttribute("aria-disabled","false");
+  const link = $("#downloadJson");
+  link.href = url;
+  link.setAttribute("aria-disabled","false");
 }
 function setBrandChip(hex){ brandChip.textContent = "Brand: " + hex.toUpperCase(); }
 
-/* ===== Interactions: Modal, Tabs, Accordion, Sliders (single definitions) ===== */
+/* ===== Interactions: Modal, Tabs, Accordion, Sliders ===== */
 const openModalButton = document.getElementById("openModalBtn");
 const backdrop = document.getElementById("backdrop");
 const closeModalButton = document.getElementById("closeModalBtn");
@@ -675,7 +728,6 @@ function trap(e){ if(e.key === "Escape") closeModal(); }
 openModalButton && openModalButton.addEventListener("click", openModal);
 closeModalButton && closeModalButton.addEventListener("click", closeModal);
 cancelModalButton && cancelModalButton.addEventListener("click", closeModal);
-backdrop && backdrop.addEventListener("click", (e)=>{ if(e.target === backdrop) closeModal(); });
 
 // Tabs
 const tabs = Array.from(document.querySelectorAll('.tab'));
@@ -700,21 +752,21 @@ function selectTab(active){
   active.focus();
 }
 
-// Accordion
-document.querySelectorAll('.accordion-item').forEach(item=>{
-  const header = item.querySelector('.accordion-header');
-  header.addEventListener('click', ()=>{
-    const expanded = item.getAttribute('aria-expanded') === 'true';
-    item.setAttribute('aria-expanded', String(!expanded));
-    header.querySelector('span[aria-hidden="true"]').textContent = expanded ? '▸' : '▾';
-  });
-});
-
-// Sliders: show live values
+/* Sliders: show live values + update CSS progress */
 document.querySelectorAll('.range-row').forEach(row=>{
   const r = row.querySelector('input[type="range"]');
   const out = row.querySelector('output');
-  r.addEventListener('input', ()=>{ out.textContent = r.value; });
+  if (r) {
+    const setP = () => {
+      const p = ((r.value - r.min) / (r.max - r.min)) * 100;
+      r.style.setProperty('--p', p);
+    };
+    setP();
+    r.addEventListener('input', ()=>{
+      out && (out.textContent = r.value);
+      setP();
+    });
+  }
 });
 
 /* ===== Generate ramps ===== */
@@ -758,7 +810,7 @@ document.getElementById("runBtn").addEventListener("click", () => {
     const brand600 = brand.find(x=>x.token==='--brand-600')?.hex || seedHexNormalized;
     setBrandChip(brand600);
 
-    // Preview swatches (no nested template literals)
+    // Preview swatches
     const brandOrder = [50,100,200,300,400,500,600,700,800,900];
     const neutralOrder = [25,50,100,200,300,400,500,600,700,800,900,950];
     const brandMap = Object.fromEntries(brand.map(x=>[x.token,x.hex]));
@@ -798,7 +850,7 @@ document.getElementById("runBtn").addEventListener("click", () => {
   }
 });
 
-/* ===== Copy CSS ===== */
+/* Copy CSS */
 document.getElementById("copyCssBtn").addEventListener("click", async ()=>{
   try{
     await navigator.clipboard.writeText(cssOut.textContent);
@@ -814,9 +866,63 @@ document.getElementById("copyCssBtn").addEventListener("click", async ()=>{
   }
 });
 
-// Modal open/close is defined once above
+/* Modal open/close */
 const confirmBtn = document.getElementById("confirmBtn");
 confirmBtn && confirmBtn.addEventListener("click", closeModal);
+
+/* ===== Accordion wiring (single-open, keyboard accessible) ===== */
+(function wireAccordion(){
+  const acc = document.getElementById('acc');
+  if (!acc) return;
+
+  const items = Array.from(acc.querySelectorAll('.accordion-item'));
+
+  const setState = (item, open) => {
+    const header = item.querySelector('.accordion-header');
+    const panel  = item.querySelector('.accordion-panel');
+    const chevron = header.querySelector('span[aria-hidden="true"]');
+
+    item.setAttribute('aria-expanded', String(open));
+    header.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;                // hide/show content
+    if (chevron) chevron.textContent = open ? '▾' : '▸';
+  };
+
+  // init state
+  items.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    const panel  = item.querySelector('.accordion-panel');
+    // ensure accessible relationships
+    if (!header.hasAttribute('aria-controls') && panel.id) {
+      header.setAttribute('aria-controls', panel.id);
+    }
+    if (!panel.hasAttribute('role')) {
+      panel.setAttribute('role','region');
+      panel.setAttribute('aria-labelledby', header.id || (header.id = crypto.randomUUID()));
+    }
+    // default closed unless author marked open
+    const open = item.getAttribute('aria-expanded') === 'true';
+    setState(item, open);
+
+    header.type = 'button'; // prevent accidental form submit if any
+    header.addEventListener('click', () => {
+      // single-open behavior: close others first
+      items.forEach(i => i !== item && setState(i, false));
+      setState(item, !(item.getAttribute('aria-expanded') === 'true'));
+    });
+    header.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        header.click();
+      }
+      // Optional arrow-key navigation
+      const i = items.indexOf(item);
+      if (e.key === 'ArrowDown') { e.preventDefault(); items[(i+1)%items.length].querySelector('.accordion-header').focus(); }
+      if (e.key === 'ArrowUp')   { e.preventDefault(); items[(i-1+items.length)%items.length].querySelector('.accordion-header').focus(); }
+    });
+  });
+})();
+
 </script>
 </body>
 </html>

@@ -1,0 +1,159 @@
+/* 1) Primitive ramps (brand + neutrals) */
+:root {
+  /* Brand ramp for #7B458F (PurpleCo's brand purple) */
+
+  --brand-50:#F7F1F9; /* Lightest Tint (L ≈ 0.98 – 0.97). Near-white background; almost pastel. */
+  --brand-100: #E9D9ED; /* Soft Tint (L ≈ 0.93 – 0.91). Used for subtle UI backgrounds. */
+  --brand-200: #D7BDE0; /* Pale Tint (L ≈ 0.86 – 0.83). Secondary backgrounds or hover states. */
+  --brand-300: #C49FD1; /* Gentle Tint (L ≈ 0.78 – 0.75). Accent fills, focus outlines. */
+  --brand-400: #B180C2; /* Mid-light (L ≈ 0.70 – 0.67). Light borders or highlights. */
+  --brand-500: #9D63B2; /* Mid-tone (L ≈ 0.62 – 0.58). Buttons / primary color. */
+  --brand-600: #7B458F;  /* Strong (L ≈ 0.54 – 0.50). Seed color, primary brand color for light theme (yours is 0.54). */
+  --brand-700: #643774; /* Dark Accent (L ≈ 0.46 – 0.42). Hover / active states. */
+  --brand-800: #502D5E; /* Deeper Shade (L ≈ 0.38 – 0.34). Headings, pressed surfaces. */
+  --brand-900: #392045; /* Deepest (L ≈ 0.30 – 0.26). Text on brand-tints / dark accents. */
+
+  /* Neutral ramp (grayscale for backgrounds, text, borders) */
+  --gray-25:#FCFCFD;    /* Off-white */
+  --gray-50:#F7F7F8;    /* Very light gray */
+  --gray-100:#F0F1F3;   /* Light gray */
+  --gray-200:#E3E5E9;   /* Slightly darker light gray */
+  --gray-300:#CFCFD5;   /* Medium-light gray */
+  --gray-400:#B7BAC0;   /* Medium gray */
+  --gray-500:#9AA0A8;   /* Medium-dark gray */
+  --gray-600:#7A7F89;   /* Dark gray */
+  --gray-700:#5C616C;   /* Darker gray */
+  --gray-800:#3E424B;   /* Very dark gray */
+  --gray-900:#26292E;   /* Near black */
+  --gray-950:#17191D;   /* Deepest black */
+}
+
+/* 2) Semantic tokens (LIGHT theme) */
+:root {
+  /* Backgrounds & Surfaces */
+  --color-bg:            var(--gray-25);     /* Page background */
+  --color-surface:       var(--gray-50);     /* Card/component background */
+  --color-elevated:      var(--gray-100);    /* Elevated elements like hover states or inputs */
+  --color-border:        var(--gray-200);    /* General border color */
+  --color-muted-bg:      var(--gray-600);    /* Muted background, can be used for secondary elements */
+
+  /* Text Colors */
+  --color-text:          var(--gray-900);    /* Primary text color */
+  --color-text-muted:    var(--gray-700);    /* Secondary/muted text color */
+  --color-text-on-muted-bg: var(--gray-25);  /* Text color for muted backgrounds (if they are dark) */
+
+  /* Contrast-aware foregrounds for brand and feedback colors */
+  --color-text-on-brand:         #ffffff;      /* Text on primary brand background (e.g., buttons) */
+  --color-text-on-brand-hover:   #ffffff;      /* Text on brand hover background */
+  --color-text-on-brand-soft:    var(--brand-700); /* Text on soft brand backgrounds (light theme) */
+  --color-text-on-success:       #ffffff;      /* Text on success backgrounds */
+  --color-text-on-warning:       #000000;      /* Text on warning backgrounds (often black on yellow) */
+  --color-text-on-danger:        #ffffff;      /* Text on danger backgrounds */
+
+  /* Brand tokens */
+  --color-brand:         var(--brand-600);     /* Primary brand color */
+  --color-brand-hover:   var(--brand-700);     /* Brand color on hover */
+  --color-brand-active:  var(--brand-800);     /* Brand color on active */
+  --color-brand-soft:    var(--brand-100);     /* Soft/light brand background */
+
+  /* Feedback tokens (soft = backgrounds for alerts/soft variants) */
+  --color-success:       #2E8B57;             /* Success foreground color */
+  --color-success-soft:  #E9FFF5;             /* Soft success background */
+  --color-warning:       #B8860B;             /* Warning foreground color */
+  --color-warning-soft:  #FFF7E6;             /* Soft warning background */
+  --color-danger:        #C03631;             /* Danger foreground color */
+  --color-danger-soft:   #FFEDEE;             /* Soft danger background */
+
+  /* Focus color for accessibility outlines */
+  --color-focus:         var(--brand-400);     /* Focus outline color */
+
+  /* Link tokens */
+  --color-link:          var(--color-brand);         /* Default link color */
+  --color-link-hover:    var(--color-brand-hover);   /* Link color on hover */
+  --color-link-active:   var(--color-brand-active);  /* Link color on active */
+  --color-link-visited:  var(--brand-700);           /* Link color for visited links */
+  --link-underline-color: color-mix(in oklab, currentColor 40%, transparent); /* Underline color derived from text color */
+  --link-underline-thickness: 2px;                   /* Underline thickness */
+  --link-underline-offset: 2px;                      /* Distance of underline from text */
+
+  /* Misc design tokens */
+  --radius: 12px;     /* Global border-radius for larger elements */
+  --radius-sm: 8px;   /* Smaller border-radius for controls like buttons/inputs */
+  --shadow-1: 0 1px 2px color-mix(in oklab, black 10%, transparent);   /* Light shadow */
+  --shadow-2: 0 6px 16px color-mix(in oklab, black 14%, transparent);  /* Deeper shadow */
+}
+
+/* 3) Dark theme overrides */
+:root[data-theme="dark"] {
+  /* Backgrounds & Surfaces (Dark) */
+  --color-bg:            var(--gray-950);    /* Page background */
+  --color-surface:       var(--gray-900);    /* Card/component background */
+  --color-elevated:      var(--gray-800);    /* Elevated elements like hover states or inputs */
+  --color-border:        var(--gray-700);    /* General border color */
+  --color-muted-bg:      var(--gray-400);    /* Muted background for dark theme */
+
+  /* Text Colors (Dark) */
+  --color-text:          var(--gray-25);     /* Primary text color */
+  --color-text-muted:    var(--gray-300);    /* Secondary/muted text color */
+  /* NEW: Specific text color for swatches in dark mode to ensure contrast */
+  --color-text-on-swatch-dark: var(--gray-900); /* Dark text for light swatches in dark mode */
+  --color-text-on-muted-bg: var(--gray-900); /* Text color for muted backgrounds (if they are light) */
+
+
+  /* Contrast-aware foregrounds — revised for dark mode */
+  --color-text-on-brand:         #ffffff;      /* White text on primary brand background */
+  --color-text-on-brand-hover:   #ffffff;      /* White text on brand hover background */
+  --color-text-on-brand-soft:    var(--brand-900); /* Text on soft brand backgrounds (dark theme) */
+  --color-text-on-success:       #ffffff;      /* White text on success backgrounds */
+  --color-text-on-warning:       #000000;      /* Black text on warning backgrounds */
+  --color-text-on-danger:        #ffffff;      /* White text on danger backgrounds */
+
+  /* Brand tokens (Dark) */
+  /* NEW: Using brand-500 for --color-brand in dark mode for better contrast with white text */
+  --color-brand:         var(--brand-500);     /* Primary brand color for dark theme (slightly darker for better white text contrast) */
+  --color-brand-hover:   var(--brand-400);     /* Brand color on hover for dark theme */
+  --color-brand-active:  var(--brand-600);     /* Brand color on active for dark theme */
+  /* NEW: Slightly more opaque mix for --color-brand-soft to improve contrast with brand-900 text */
+  --color-brand-soft:    color-mix(in oklab, var(--brand-400) 25%, transparent); /* Soft brand background for dark theme */
+
+  /* Feedback tokens (Dark) */
+  --color-success:       #5ED0A2;             /* Success foreground color */
+  --color-success-soft:  color-mix(in oklab, #5ED0A2 14%, transparent); /* Soft success background */
+  --color-warning:       #FFC472;             /* Warning foreground color */
+  --color-warning-soft:  color-mix(in oklab, #FFC472 14%, transparent); /* Soft warning background */
+  --color-danger:        #FF8C8A;             /* Danger foreground color */
+  --color-danger-soft:   color-mix(in oklab, #FF8C8A 14%, transparent); /* Soft danger background */
+
+  /* Focus color (Dark) */
+  --color-focus:         var(--brand-300);     /* Focus outline color */
+
+  /* Links (dark) */
+  --color-link:          var(--color-brand);         /* Default link color */
+  --color-link-hover:    var(--brand-300);           /* Link color on hover */
+  --color-link-active:   var(--brand-500);           /* Link color on active */
+  --color-link-visited:  var(--brand-500);           /* Link color for visited links */
+  --link-underline-color: color-mix(in oklab, currentColor 50%, transparent); /* Adjust blend for dark theme */
+}
+
+/* Base reset-ish */
+* {
+  /* Ensure consistent box model across all elements */
+  box-sizing: border-box;
+}
+html, body {
+  /* Make sure html and body take up full height */
+  height: 100%;
+}
+body {
+  /* Remove default margin from body */
+  margin: 0;
+  /* Set a modern system font stack for optimal readability */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+  /* Apply global background and text colors from semantic tokens */
+  background: var(--color-bg);
+  color: var(--color-text);
+  /* Set a comfortable default line height */
+  line-height: 1.5;
+  /* Smooth theme transitions */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

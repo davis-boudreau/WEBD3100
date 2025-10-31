@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modern HTML UI Components Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .swatch {
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      margin: 5px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .swatch-muted {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .card-muted {
+      opacity: 0.5;
+    }
+    .badge-muted {
+      background-color: #ccc;
+      color: #666;
+    }
+    .link-muted {
+      color: #999;
+      pointer-events: none;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body class="p-4">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <a class="navbar-brand" href="#">UI Demo</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link link-muted" href="#">Disabled</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <h2>Buttons</h2>
+  <button class="btn btn-primary">Active Button</button>
+  <button class="btn btn-secondary" disabled>Muted Button</button>
+
+  <h2 class="mt-4">Forms with Error Messages</h2>
+  <form>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control is-invalid" id="email" required>
+      <div class="invalid-feedback">Please enter a valid email.</div>
+    </div>
+  </form>
+
+  <h2 class="mt-4">Cards</h2>
+  <div class="card w-25 mb-3">
+    <div class="card-body">Active Card</div>
+  </div>
+  <div class="card w-25 card-muted mb-3">
+    <div class="card-body">Muted Card</div>
+  </div>
+
+  <h2 class="mt-4">Modals</h2>
+  <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#demoModal">Open Modal</button>
+  <div class="modal fade" id="demoModal" tabindex="-1">
+    <div class="modal-dialog"><div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Modal Title</h5></div>
+      <div class="modal-body">This is a modal.</div>
+      <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div>
+    </div></div>
+  </div>
+
+  <h2 class="mt-4">Tabs</h2>
+  <ul class="nav nav-tabs" id="tabDemo" role="tablist">
+    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tab1">Tab 1</a></li>
+    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab2">Tab 2</a></li>
+  </ul>
+  <div class="tab-content p-3 border border-top-0">
+    <div class="tab-pane fade show active" id="tab1">Content for Tab 1</div>
+    <div class="tab-pane fade" id="tab2">Content for Tab 2</div>
+  </div>
+
+  <h2 class="mt-4">Accordions</h2>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">Accordion Item</button></h2>
+      <div id="collapseOne" class="accordion-collapse collapse show"><div class="accordion-body">Accordion content.</div></div>
+    </div>
+  </div>
+
+  <h2 class="mt-4">Sliders</h2>
+  <input type="range" class="form-range" min="0" max="100">
+
+  <h2 class="mt-4">Toasts</h2>
+  <div class="toast show align-items-center text-bg-primary border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">This is a toast message.</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+
+  <h2 class="mt-4">Tooltips</h2>
+  <button class="btn btn-secondary" data-bs-toggle="tooltip" title="Tooltip text">Hover me</button>
+
+  <h2 class="mt-4">Swatches</h2>
+  <div class="swatch" style="background-color: #3498db;" title="Blue"></div>
+  <div class="swatch swatch-muted" style="background-color: #e74c3c;" title="Muted Red"></div>
+
+  <h2 class="mt-4">Badges</h2>
+  <span class="badge bg-success">Active</span>
+  <span class="badge badge-muted">Muted</span>
+
+  <h2 class="mt-4">Links</h2>
+  <a href="https://example.com" target="_blank">Active Link</a><br>
+  <a href="#" class="link-muted">Muted Link</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(el => new bootstrap.Tooltip(el));
+  </script>
+</body>
+</html>

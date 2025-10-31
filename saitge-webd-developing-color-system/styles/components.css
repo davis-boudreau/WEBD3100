@@ -1,0 +1,448 @@
+/* Layout helpers */
+.container {
+  /* Max width for content, centered horizontally */
+  max-width: 1000px;
+  margin-inline: auto;
+  /* Padding on left/right for smaller screens */
+  padding: 1rem;
+}
+.section {
+  /* Vertical padding for sections */
+  padding: 2rem 0;
+}
+.grid-3 {
+  /* Responsive grid for 3-column layouts */
+  display: grid;
+  gap: 1rem;
+  /* Columns auto-fit, minimum width 260px, maximum 1fr */
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+}
+.stack-s > * + * {
+  /* Small vertical spacing between stacked elements */
+  margin-top: .5rem;
+}
+.lead {
+  /* Larger, slightly muted text for introductory paragraphs */
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+}
+.muted {
+  /* Muted text color for secondary information */
+  color: var(--color-text-muted);
+}
+
+/* Utility grid + state helpers for visual test (moved from index.html) */
+.preview-container {
+  /* Container for the preview content, max-width and centered */
+  max-width: 1040px;
+  margin: auto;
+  padding: 1.25rem;
+}
+.preview-grid {
+  /* Grid layout for preview samples */
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 1rem;
+}
+.sample {
+  /* Styling for individual preview samples */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius); /* Consistent radius */
+  padding: 1rem;
+}
+.sample h3 {
+  /* Margin adjustments for sample headings */
+  margin-top: .25rem;
+  margin-bottom: .5rem;
+}
+.stack > * + * {
+  /* Vertical spacing for stacked items within a sample */
+  margin-top: .5rem;
+}
+
+/* State simulation (so you can see hover/active without interacting) */
+.button.is-hover {
+  /* Simulate hover state for buttons */
+  background: var(--color-brand-hover);
+  color: var(--color-text-on-brand-hover);
+}
+.button.is-active {
+  /* Simulate active state for buttons */
+  background: var(--color-brand-active);
+  color: var(--color-text-on-brand-hover);
+}
+.button--soft.is-hover {
+  /* Simulate hover state for soft buttons, using a color-mix for a nuanced blend */
+  background: color-mix(in oklab, var(--color-brand-soft) 80%, var(--color-brand));
+  color: var(--color-text-on-brand-hover);
+}
+
+
+/* Skip link for accessibility */
+.skip-link {
+  /* Hidden by default, only visible on focus */
+  position: absolute; left: -9999px; top: -9999px;
+}
+.skip-link:focus {
+  /* Make skip link visible and styled on focus */
+  position: static; margin: .5rem; padding: .5rem .75rem;
+  background: var(--color-focus); color: #000; border-radius: var(--radius-sm); /* Use small radius */
+}
+
+/* Header / Nav */
+.site-header {
+  /* Header background and bottom border */
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+.header-inner {
+  /* Grid layout for header content (brand, nav, toggle button, badge) */
+  display: grid;
+  /* Adjusted grid-template-columns to accommodate the new toggle button */
+  grid-template-columns: auto 1fr auto auto; /* Brand | Nav (flex-grow) | Toggle | Badge */
+  align-items: center;
+  gap: 1rem;
+}
+.brand {
+  /* Styling for the brand logo/name */
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 700;
+}
+.brand-mark {
+  /* Brand mark specific styling */
+  color: var(--color-brand);
+  font-size: 1.25rem;
+  transition: color 0.3s ease; /* Smooth transition for brand mark color */
+}
+.brand-name {
+  /* Brand name specific styling */
+  color: var(--color-text);
+  transition: color 0.3s ease; /* Smooth transition for brand name color */
+}
+.nav {
+  /* Navigation link container */
+  display: inline-flex;
+  gap: .75rem;
+  justify-content: flex-start; /* Align nav items to the start of their grid cell */
+}
+
+/* Navigation links are controls (no underline), strong focus */
+.nav-link {
+  /* Base styling for navigation links */
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .5rem .6rem;
+  border-radius: var(--radius-sm); /* Use small radius for controls */
+  text-decoration: none; /* No underline for nav links */
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+.nav-link:hover {
+  /* Hover state for nav links */
+  background: var(--color-elevated);
+}
+.nav-link:focus-visible {
+  /* Focus state for accessibility */
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+.nav-link[aria-current="page"] {
+  /* Styling for the currently active nav link */
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
+/* Hero */
+.hero {
+  /* Hero section background with a subtle gradient based on brand color */
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--color-brand) 12%, transparent),
+    transparent
+  );
+  padding: 3rem 0 2rem;
+  transition: background 0.3s ease; /* Smooth transition for hero background */
+}
+.hero h1 {
+  /* Hero heading styling */
+  color: var(--color-brand);
+  margin: 0 0 .25rem;
+  transition: color 0.3s ease; /* Smooth transition for hero heading color */
+}
+.hero-actions {
+  /* Layout for action buttons in hero section */
+  display: flex;
+  gap: .75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+/* Cards */
+.card {
+  /* Base styling for cards */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius); /* Consistent radius */
+  padding: 1rem;
+  box-shadow: var(--shadow-1);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+.card h3 {
+  /* Margin adjustment for card headings */
+  margin-top: .25rem;
+}
+
+/* Inline links (content links) — always visible underline */
+a {
+  /* Default styling for inline links */
+  color: var(--color-link);
+  text-decoration-line: underline;
+  text-decoration-color: var(--link-underline-color);
+  text-decoration-thickness: var(--link-underline-thickness);
+  text-underline-offset: var(--link-underline-offset);
+  transition: color 0.3s ease, text-decoration-color 0.3s ease; /* Smooth transitions */
+}
+a:hover {
+  /* Hover state for inline links, underline matches text color */
+  color: var(--color-link-hover);
+  text-decoration-color: currentColor;
+}
+a:active {
+  /* Active state for inline links */
+  color: var(--color-link-active);
+}
+a:visited {
+  /* Visited state for inline links */
+  color: var(--color-link-visited);
+}
+a:focus-visible {
+  /* Focus state for accessibility */
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 4px; /* Slight radius for focus outline */
+}
+
+/* Buttons (contrast-aware foregrounds) */
+.button {
+  /* Custom properties for button colors, making it easier to override */
+  --btn-bg: var(--color-brand);
+  --btn-fg: var(--color-text-on-brand);
+  /* Apply custom properties for background and foreground */
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  /* Border color derived from background for cohesive look */
+  border: 1px solid color-mix(in oklab, var(--btn-bg) 80%, black);
+  border-radius: var(--radius-sm); /* Consistent radius with other controls */
+  padding: .6rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  /* Basic reset for buttons */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-decoration: none; /* Ensure no underline on buttons that are links */
+  display: inline-flex; /* Allow icon alignment if needed */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+.button:hover {
+  /* Hover state for primary buttons */
+  background: var(--color-brand-hover);
+  color: var(--color-text-on-brand-hover);
+}
+.button:active {
+  /* Active state for primary buttons */
+  background: var(--color-brand-active);
+  color: var(--color-text-on-brand-hover);
+}
+.button:focus-visible {
+  /* Focus state for accessibility */
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* Soft & Outline variants */
+.button--soft {
+  /* Soft variant styling */
+  background: var(--color-brand-soft);
+  color: var(--color-text-on-brand-soft);
+  /* Border for soft button, derived from brand for subtle presence */
+  border: 1px solid color-mix(in oklab, var(--color-brand) 18%, transparent);
+}
+.button--soft:hover {
+  /* Hover state for soft buttons, subtle blend with primary brand color */
+  background: color-mix(in oklab, var(--color-brand-soft) 80%, var(--color-brand));
+  color: var(--color-text-on-brand-hover);
+}
+.button--outline {
+  /* Outline variant styling */
+  background: transparent;
+  color: var(--color-brand);
+  border: 1px solid var(--color-brand);
+}
+.button--outline:hover {
+  /* Hover state for outline buttons, fills with brand color */
+  background: var(--color-brand);
+  color: var(--color-text-on-brand);
+}
+
+/* Forms */
+.form {
+  /* Grid layout for form fields */
+  display: grid;
+  gap: 1rem;
+  max-width: 720px;
+}
+.field {
+  /* Grid layout for label and input within a field */
+  display: grid;
+  gap: .35rem;
+}
+label {
+  /* Bold label text */
+  font-weight: 600;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+.input, .select, .textarea {
+  /* Base styling for form controls */
+  background: var(--color-elevated);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm); /* Consistent radius with buttons */
+  padding: .6rem .7rem;
+  /* Ensure consistent appearance across browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+.input:focus-visible,
+.select:focus-visible,
+.textarea:focus-visible {
+  /* Focus state for form controls */
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+.actions {
+  /* Layout for form action buttons */
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap; /* Allow buttons to wrap */
+}
+
+/* Alerts (soft backgrounds, readable foregrounds) */
+.alert {
+  /* Base styling for alert messages */
+  border-radius: var(--radius); /* Consistent radius */
+  padding: .8rem 1rem;
+  border: 1px solid transparent; /* Default transparent border to be overridden */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+.alert--success {
+  /* Success alert styling */
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  border-color: color-mix(in oklab, var(--color-success) 25%, transparent);
+}
+.alert--warning {
+  /* Warning alert styling */
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+  border-color: color-mix(in oklab, var(--color-warning) 25%, transparent);
+}
+.alert--danger {
+  /* Danger alert styling */
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+  border-color: color-mix(in oklab, var(--color-danger) 25%, transparent);
+}
+
+/* Badges & links */
+.badge {
+  /* Base styling for badges */
+  border-radius: 999px; /* Pill shape */
+  padding: .2rem .6rem;
+  font-weight: 700;
+  font-size: .75rem;
+  display: inline-flex; /* Ensure proper alignment for text/icons */
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+.badge--brand {
+  /* Brand-themed badge */
+  background: var(--color-brand-soft);
+  color: var(--color-text-on-brand-soft);
+}
+.badge--muted {
+  /* Muted badge, using gray scale */
+  background: var(--gray-100);
+  color: var(--gray-800);
+}
+
+/* Swatches */
+.swatch-grid {
+  /* Grid layout for color swatches */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap: .75rem;
+  margin-block: 1rem;
+}
+.swatch {
+  /* Base styling for individual color swatches */
+  --sw: var(--gray-100); /* Default swatch color if not overridden */
+  background: var(--sw);
+  border-radius: var(--radius); /* Consistent radius */
+  border: 1px solid var(--color-border);
+  padding: 1.25rem .75rem;
+  display: grid;
+  place-items: end start; /* Position content at bottom-left */
+  min-height: 84px;
+  /* NEW: Use specific text color for dark theme swatches for contrast */
+  color: var(--color-text); /* Default to general text color */
+  box-shadow: var(--shadow-1);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+/* NEW: Override swatch text color specifically for dark theme to ensure legibility */
+:root[data-theme="dark"] .swatch {
+  color: var(--color-text-on-swatch-dark); /* Apply dark text for contrast on light swatches */
+}
+
+.swatch span {
+  /* Styling for the swatch label */
+  background: color-mix(in oklab, var(--sw) 0%, var(--color-surface)); /* Background for legibility */
+  padding: .15rem .45rem;
+  border-radius: var(--radius-sm); /* Smaller radius for label */
+  border: 1px solid color-mix(in oklab, var(--sw) 24%, var(--color-border));
+  font-size: .8rem;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+
+/* Footer */
+.site-footer {
+  /* Footer styling */
+  margin-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+.footer-inner {
+  /* Padding for footer content */
+  padding: 1rem;
+  text-align: center; /* Center footer text */
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    /* Disable all animations and transitions for users who prefer reduced motion */
+    animation: none !important;
+    transition: none !important;
+  }
+}

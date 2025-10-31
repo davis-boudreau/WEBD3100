@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Color System Demo</title>
+<style>
+/* ---------- COLOR TOKENS ---------- */
+:root {
+  /* Neutral ramp */
+  --gray-25:#fcfcfd;--gray-50:#f7f7f8;--gray-100:#f0f1f3;
+  --gray-200:#e3e5e9;--gray-300:#cfd3da;--gray-400:#b7bdc7;
+  --gray-500:#9aa3b2;--gray-600:#7a8799;--gray-700:#5b6778;
+  --gray-800:#3e4754;--gray-900:#262c35;--gray-950:#161a20;
+
+  /* Brand ramp (blue example) */
+  --brand-50:#eef6ff;--brand-100:#d9eaff;--brand-200:#bcd9ff;
+  --brand-300:#91c1ff;--brand-400:#63a5fb;--brand-500:#3a86f6;
+  --brand-600:#1f6fe6;--brand-700:#195ac0;--brand-800:#154a9b;--brand-900:#123d81;
+}
+
+/* ---------- LIGHT THEME ---------- */
+:root {
+  --color-bg:var(--gray-25);
+  --color-surface:var(--gray-50);
+  --color-border:var(--gray-200);
+  --color-text:var(--gray-900);
+  --color-text-muted:var(--gray-700);
+  --color-brand:var(--brand-600);
+  --color-brand-hover:var(--brand-700);
+  --color-brand-soft:var(--brand-50);
+  --color-focus:var(--brand-400);
+}
+
+/* ---------- DARK THEME ---------- */
+[data-theme="dark"]{
+  --color-bg:var(--gray-950);
+  --color-surface:var(--gray-900);
+  --color-border:var(--gray-700);
+  --color-text:var(--gray-25);
+  --color-text-muted:var(--gray-300);
+  --color-brand:var(--brand-400);
+  --color-brand-hover:var(--brand-300);
+  --color-brand-soft:color-mix(in oklab,var(--brand-400) 18%,transparent);
+  --color-focus:var(--brand-300);
+}
+
+/* ---------- GLOBAL STYLES ---------- */
+body{
+  font-family:system-ui, sans-serif;
+  background:var(--color-bg);
+  color:var(--color-text);
+  margin:0;
+  padding:2rem;
+  transition:background .3s,color .3s;
+}
+h1{color:var(--color-brand);}
+a{color:var(--color-brand);}
+a:hover{color:var(--color-brand-hover);}
+.container{
+  max-width:800px;
+  margin:auto;
+  background:var(--color-surface);
+  border:1px solid var(--color-border);
+  border-radius:12px;
+  padding:2rem;
+  box-shadow:0 4px 8px color-mix(in oklab,black 10%,transparent);
+  transition:background .3s;
+}
+.button{
+  background:var(--color-brand);
+  color:#fff;
+  border:none;
+  padding:.6rem 1rem;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  transition:background .2s;
+}
+.button:hover{background:var(--color-brand-hover);}
+.badge{
+  background:var(--color-brand-soft);
+  color:var(--color-brand);
+  border-radius:999px;
+  padding:.25rem .6rem;
+  font-size:.8rem;
+  font-weight:600;
+}
+.card{
+  background:var(--color-surface);
+  border:1px solid var(--color-border);
+  border-radius:10px;
+  padding:1rem;
+  margin-top:1rem;
+}
+.footer{
+  text-align:center;
+  margin-top:2rem;
+  color:var(--color-text-muted);
+  font-size:.9rem;
+  border-top:1px solid var(--color-border);
+  padding-top:1rem;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Brand Color System Demo <span class="badge">New</span></h1>
+  <p>This page demonstrates how semantic color tokens create a cohesive palette derived from a brand logo.</p>
+
+  <button class="button" id="themeToggle">Toggle Theme</button>
+
+  <div class="card">
+    <h2>Interactive Elements</h2>
+    <p><a href="#">This is a link</a> using <code>--color-brand</code>.</p>
+    <p><button class="button">Primary Button</button></p>
+  </div>
+
+  <div class="card">
+    <h2>Surfaces & Text</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Strong text</strong> contrasts with <span class="badge">muted accents</span>.</p>
+  </div>
+
+  <div class="footer">© 2025 Example Organization. All rights reserved.</div>
+</div>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  toggle.addEventListener('click', () => {
+    const html = document.documentElement;
+    html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  });
+</script>
+
+</body>
+</html>

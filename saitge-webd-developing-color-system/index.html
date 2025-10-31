@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dark Mode Preview – Brand Buttons & Alerts</title>
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand"><span class="brand-mark">◆</span><span class="brand-name">PurpleCo</span></div>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" aria-current="page">Home</a>
+        <a class="nav-link">Products</a>
+        <a class="nav-link">Docs</a>
+        <a class="nav-link">Contact</a>
+      </nav>
+      <!-- NEW: Theme Toggle Button -->
+      <button id="theme-toggle" class="button button--soft">Toggle Theme</button>
+      <!-- Original badge, now next to the toggle button -->
+      <span class="badge badge--brand">Dark Theme</span>
+    </div>
+  </header>
+
+  <main class="preview-container">
+    <h1>Dark Mode Preview</h1>
+    <p class="muted">Verifies readable foregrounds on brand backgrounds (default/hover/active) + soft variants and alerts.</p>
+
+    <section class="preview-grid" aria-label="Buttons preview">
+      <article class="sample">
+        <h3>Primary Buttons</h3>
+        <div class="stack">
+          <button class="button">Default</button>
+          <button class="button is-hover" aria-label="Hover state">Hover</button>
+          <button class="button is-active" aria-label="Active state">Active</button>
+        </div>
+      </article>
+
+      <article class="sample">
+        <h3>Soft Buttons</h3>
+        <div class="stack">
+          <button class="button button--soft">Soft Default</button>
+          <button class="button button--soft is-hover" aria-label="Hover state">Soft Hover</button>
+          <button class="button button--outline">Outline</button>
+        </div>
+      </article>
+
+      <article class="sample">
+        <h3>Links & Badges</h3>
+        <div class="stack">
+          <p>Inline <a href="#" class="link">link</a>, <a href="#" class="link link--subtle">subtle link</a>.</p>
+          <span class="badge badge--brand">Brand badge</span>
+          <span class="badge badge--muted">Muted badge</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="preview-grid" aria-label="Alerts preview" style="margin-top:1rem;">
+      <article class="sample">
+        <h3>Alerts</h3>
+        <div class="stack">
+          <div class="alert alert--success"><strong>Success:</strong> All set.</div>
+          <div class="alert alert--warning"><strong>Warning:</strong> Check inputs.</div>
+          <div class="alert alert--danger"><strong>Error:</strong> Something went wrong.</div>
+        </div>
+      </article>
+
+      <article class="sample">
+        <h3>Form Controls</h3>
+        <form class="form" action="#">
+          <div class="field">
+            <label for="n">Name</label>
+            <input id="n" class="input" placeholder="Jane Doe" />
+          </div>
+          <div class="field">
+            <label for="e">Email</label>
+            <input id="e" type="email" class="input" placeholder="jane@example.com" />
+          </div>
+          <div class="actions">
+            <button class="button">Submit</button>
+            <button class="button button--soft">Cancel</button>
+          </div>
+        </form>
+      </article>
+
+      <article class="sample">
+        <h3>Swatches (Brand)</h3>
+        <div class="swatch-grid">
+          <div class="swatch" style="--sw: var(--brand-400)"><span>brand-400</span></div>
+          <div class="swatch" style="--sw: var(--brand-500)"><span>brand-500</span></div>
+          <div class="swatch" style="--sw: var(--brand-600)"><span>brand-600</span></div>
+          <div class="swatch" style="--sw: var(--brand-700)"><span>brand-700</span></div>
+          <div class="swatch" style="--sw: var(--brand-800)"><span>brand-800</span></div>
+        </div>
+        <p class="muted" style="margin-top:.5rem;">Buttons use white text on these brand shades in dark mode.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">&copy; 2023 PurpleCo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- NEW: JavaScript for theme toggling -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement; // This is the <html> tag
+      const themeBadge = document.querySelector('.badge--brand'); // The badge to update
+
+      // Function to update the theme and the badge text
+      const updateTheme = () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlElement.setAttribute('data-theme', 'light');
+          themeBadge.textContent = 'Light Theme';
+        } else {
+          htmlElement.setAttribute('data-theme', 'dark');
+          themeBadge.textContent = 'Dark Theme';
+        }
+      };
+
+      // Set initial badge text based on the current theme
+      if (htmlElement.getAttribute('data-theme') === 'dark') {
+        themeBadge.textContent = 'Dark Theme';
+      } else {
+        themeBadge.textContent = 'Light Theme';
+      }
+
+      // Add event listener to the toggle button
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', updateTheme);
+      }
+    });
+  </script>
+</body>
+</html>

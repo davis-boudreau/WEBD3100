@@ -1,6 +1,6 @@
 
 html {
-  font-size: 16px; /* or 62.5% for easier rem math */
+  font-size: 19px; /* or 62.5% for easier rem math */
   scroll-behavior: smooth;
   height: 100%;
   overflow-x: hidden;
@@ -24,7 +24,7 @@ h1,h2,h3,h4,h5,h6 {
 .header-inner-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-between;
+    justify-content:space-around;
     align-items: center;
     
 }
@@ -34,6 +34,7 @@ h1,h2,h3,h4,h5,h6 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
+    padding: 16px;
 }
 
 .logo-container {
@@ -41,17 +42,21 @@ h1,h2,h3,h4,h5,h6 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
+    padding: 16px;
 }
 
 button {
     font-family: 'Open Sans';
+    font-size: clamp(16px, 2.2vw, 22px);
     color: aliceblue;
+    font-weight: 600;
     padding-left: 24px;
     padding-right: 24px;
     padding-top: 8px;
     padding-bottom: 12px;
     border-radius: 32px;
     border: none;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .nav-button {

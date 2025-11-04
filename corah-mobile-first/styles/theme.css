@@ -1,0 +1,87 @@
+/* styles/theme.css */
+/* -------------------------------------------------------
+   SEMANTIC TOKENS (MEANINGFUL ROLES)
+   - Light theme (default)
+   - Dark theme (data-theme="dark")
+   - Components should ONLY use these vars.
+--------------------------------------------------------*/
+
+/* Light theme is default: attach to :root (html) */
+:root {
+  /* Backgrounds & surfaces */
+  --color-bg:          var(--neutral-50);
+  --color-surface:     #FFFFFF;
+  --color-surface-2:   var(--neutral-100);
+
+  /* Text */
+  --color-text:        var(--neutral-900);
+  --color-text-muted:  var(--neutral-600);
+
+  /* Borders */
+  --color-border:      var(--neutral-200);
+
+  /* Interactive / brand roles */
+  --color-primary:           var(--brand-600);
+  --color-primary-hover:     var(--brand-700);
+  --color-primary-contrast:  #FFFFFF; /* text on primary */
+
+  /* Reserve roles (optional future) */
+  --color-secondary:         var(--brand-secondary-500);
+  --color-accent:            var(--brand-accent-500);
+
+  /* Links and states */
+  --color-link:              var(--brand-600);
+  --color-link-hover:        var(--brand-700);
+  --color-focus-ring:        var(--brand-400);
+
+  /* Elevation */
+  --shadow-elev: var(--shadow-sm);
+}
+
+/* Respect user OS preference on first load */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Only used if no explicit data-theme has been set */
+  }
+}
+
+/* Explicit dark theme via data attribute (has priority) */
+:root[data-theme="dark"] {
+  --color-bg:          var(--neutral-900);
+  --color-surface:     var(--neutral-800);
+  --color-surface-2:   var(--neutral-700);
+
+  --color-text:        var(--neutral-50);
+  --color-text-muted:  var(--neutral-400);
+
+  --color-border:      var(--neutral-700);
+
+  --color-primary:           var(--brand-400);
+  --color-primary-hover:     var(--brand-300);
+  --color-primary-contrast:  #1A1120; /* deep bg text on lighter brand */
+
+  --color-secondary:         var(--brand-secondary-500); /* placeholder */
+  --color-accent:            var(--brand-accent-500);    /* placeholder */
+
+  --color-link:              var(--brand-300);
+  --color-link-hover:        var(--brand-200);
+  --color-focus-ring:        var(--brand-300);
+
+  --shadow-elev: var(--shadow-md);
+}
+
+/* Global base styles that consume semantic tokens */
+:where(body) {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+/* Helpful utility */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

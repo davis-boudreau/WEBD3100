@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Viewport is essential for mobile-first scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Corah — Tokens & Themes Demo</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+  <!-- CSS order: tokens → theme → components -->
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/theme.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+  <header class="site-header container">
+    <div class="brand">
+      <!-- Replace with your SVG thumbprint heart -->
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">
+        <strong class="brand__title">Corah</strong>
+        <small class="brand__subtitle">centre of rural aging &amp; health</small>
+      </span>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <button class="button-ghost" id="theme-toggle" type="button" aria-pressed="false">
+        Toggle theme
+      </button>
+      <a class="button-ghost" href="#">Home</a>
+      <a class="button-ghost" href="#">About</a>
+      <a class="button-ghost" href="#">Events</a>
+      <a class="button-ghost" href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div>
+        <h1 class="hero__title">Mobile-First, Token-Driven UI</h1>
+        <p class="hero__lead">
+          This demo shows how brand and neutral ramps feed semantic roles,
+          which power accessible components across light and dark themes.
+        </p>
+        <div class="hero__cta">
+          <button class="button">Get Started</button>
+        </div>
+      </div>
+      <aside class="card">
+        <h2 style="margin-top:0">What are Design Tokens?</h2>
+        <p>They are the single source of truth for UI values (colors, spacing, typography). Components only reference semantic tokens, not raw values.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>&copy; 2025 Corah. All rights reserved.</p>
+  </footer>
+
+  <script src="scripts/theme-toggle.js" type="module"></script>
+</body>
+</html>

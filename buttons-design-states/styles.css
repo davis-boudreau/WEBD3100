@@ -1,0 +1,62 @@
+/* Base Button Style */
+.ui-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover State */
+.ui-button:hover {
+  background-color: #005ea2;
+}
+
+/* Focus State */
+.ui-button:focus {
+  outline: 2px solid #ffbf47;
+  outline-offset: 2px;
+}
+
+/* Active (Pressed) State */
+.ui-button:active {
+  background-color: #004578;
+  transform: scale(0.98);
+}
+
+/* Disabled State */
+.ui-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+/* Loading State */
+.ui-button.loading {
+  background-color: #0078d4;
+  color: #ffffff;
+  position: relative;
+  pointer-events: none;
+}
+
+.ui-button.loading::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

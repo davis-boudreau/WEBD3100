@@ -1,0 +1,55 @@
+:root {
+  /* Seed & neutral */
+  --brand-seed: #7B458F;
+  --neutral-0: #ffffff;
+  --neutral-1000: #0b0b0e;
+
+  /* Brand scale (50–950) derived from seed with color-mix toward white/black) */
+  --brand-50:  color-mix(in oklab, var(--brand-seed) 10%, white);
+  --brand-100: color-mix(in oklab, var(--brand-seed) 20%, white);
+  --brand-200: color-mix(in oklab, var(--brand-seed) 30%, white);
+  --brand-300: color-mix(in oklab, var(--brand-seed) 40%, white);
+  --brand-400: color-mix(in oklab, var(--brand-seed) 55%, white);
+  --brand-500: var(--brand-seed);
+  --brand-600: color-mix(in oklab, var(--brand-seed) 70%, black);
+  --brand-700: color-mix(in oklab, var(--brand-seed) 60%, black);
+  --brand-800: color-mix(in oklab, var(--brand-seed) 75%, black);
+  --brand-900: color-mix(in oklab, var(--brand-seed) 85%, black);
+  --brand-950: color-mix(in oklab, var(--brand-seed) 92%, black);
+
+  /* Semantic map (use these in components; swap implementations later without touching markup) */
+  --color-bg:        var(--neutral-0);
+  --color-fg:        #1f1a24;
+  --color-primary:   var(--brand-600);
+  --color-primary-cta: var(--brand-500);
+  --color-primary-contrast: #ffffff;
+  --color-muted:     var(--brand-50);
+  --color-border:    color-mix(in oklab, var(--brand-600) 10%, #888);
+
+  /* Typography tokens */
+  --font-sans: system-ui, "Open Sans", Arial, sans-serif;
+  --font-display: "Montserrat", var(--font-sans);
+  --fs-200: 0.875rem;   /* 14px */
+  --fs-300: 1rem;       /* 16px */
+  --fs-400: 1.125rem;   /* 18px */
+  --fs-600: 1.5rem;     /* 24px */
+  --fs-700: 1.75rem;    /* 28px */
+
+  /* Spacing & radii */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Button component tokens (hooks for the design system) */
+  --btn-bg: var(--color-primary);
+  --btn-fg: var(--color-primary-contrast);
+  --btn-bg-hover: var(--brand-700);
+  --btn-radius: var(--radius-md);
+  --btn-padding-y: 0.6rem;
+  --btn-padding-x: 1rem;
+}

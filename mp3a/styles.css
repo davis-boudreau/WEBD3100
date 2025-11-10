@@ -1,0 +1,111 @@
+/* Base document */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Header container */
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--neutral-0);
+}
+.header-inner {
+  /* Mobile-first: stack comfortably within small widths (≥320px) */
+  display: flex;
+  flex-wrap: wrap; /* allows nav to wrap under logo on very small screens */
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+/* Brand lockup */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: inherit;
+  min-width: 0; /* allows text wrap */
+}
+.brand-mark {
+  width: 40px;
+  height: auto;
+  flex: 0 0 auto;
+}
+.brand-text {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.brand-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-600);
+  font-weight: 700;
+  line-height: 1.1;
+}
+.brand-subtitle {
+  font-size: var(--fs-200);
+  opacity: 0.85;
+}
+
+/* Nav list (mobile: wraps under the logo) */
+.primary-nav { width: 100%; } /* force wrap below brand at narrow widths */
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: flex-start;
+}
+
+/* Design-system buttons */
+.btn {
+  display: inline-block;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--fs-300);
+  border: 1px solid transparent;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-fg);
+  border-color: color-mix(in oklab, var(--color-border) 60%, transparent);
+}
+.btn-ghost:hover { border-color: var(--color-border); }
+.btn-primary {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+.btn-primary:hover { background: var(--btn-bg-hover); }
+
+/* --- Media Queries (mobile-first → enhance) --- */
+
+/* ≥480px: keep nav on same row if space allows */
+@media (min-width: 480px) {
+  .primary-nav { width: auto; } /* allows brand and nav inline when width permits */
+  .nav-list { justify-content: flex-end; }
+}
+
+/* ≥768px: improved spacing and typography */
+@media (min-width: 768px) {
+  .brand-mark { width: 48px; }
+  .brand-title { font-size: var(--fs-700); }
+  .header-inner { gap: var(--space-4); padding: var(--space-4) var(--space-6); }
+}
+
+/* ≥1024px: widen container, refine */
+@media (min-width: 1024px) {
+  .nav-list { gap: var(--space-3); }
+}

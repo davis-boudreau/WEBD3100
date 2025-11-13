@@ -1,0 +1,32 @@
+I have not been clear on button states, background colors for list and dark, separator color and  specifications, and we have not considered light and dark themes.  Also, I see that flex-wrap is not used so that the header can resize for smaller resolutions.  The brand-logo and brand-workmark-logo need min and max values.  Also I really need this workshop to be in the context of teaching students the most important concepts.  
+
+I also need a section to explain to the web developer that there are key requirements that must be provided by the web designer.  I have provided some to you but we need a specific list otherwise the developer will be designing so I am going to provide a list and further define what I missed below:
+
+Components
+- logos file names and types, min and max from figma
+   - corah-brand-logo.svg
+   - corah-brand-wordmark-logo.svg
+
+- button specifics color, radius, states etc. and min and max widths
+
+Color System
+- brand color and ramp
+- neutral color and ramp
+- secondart color and ramp
+- light and dark background
+
+Typography
+ - font style and source
+- scaling (min and max)
+- base font size
+
+Device Layouts
+- padding, gap for containers
+- desktop, tablet and mobile layouts light theme
+- desktop, tablet and mobile layouts light theme 
+
+for the light theme, we use a white background 
+for the dark theme, we use brand-95 background
+
+The button in the nav should wrap and the nav-container should wrap 
+

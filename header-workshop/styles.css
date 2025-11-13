@@ -105,6 +105,7 @@ body {
   - Paddings: top 32, right 32, bottom 8, left 32.
 */
 .header-section-container {
+  
   display: flex;
   flex-direction: column;
   gap: var(--space-32);       /* 32px gap between header and separator */

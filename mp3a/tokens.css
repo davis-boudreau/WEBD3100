@@ -49,7 +49,7 @@
   --btn-bg: var(--color-primary);
   --btn-fg: var(--color-primary-contrast);
   --btn-bg-hover: var(--brand-700);
-  --btn-radius: var(--radius-md);
+  --btn-radius: var(--radius-lg);
   --btn-padding-y: 0.6rem;
   --btn-padding-x: 1rem;
 }

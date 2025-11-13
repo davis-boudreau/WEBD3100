@@ -5,13 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Corah — Homepage</title>
   <link rel="stylesheet" href="styles.css" />
+   <link rel="stylesheet" href="tokens.css" />
   <!-- Fonts: replace with preconnect + proper CSS link if using Google Fonts -->
 </head>
 <body>
   <!-- Header from tutorial goes here -->
-  <header class="site-header" role="banner">...</header>
+  <header class="site-header" role="banner">
+  <div class="header-inner">
+    <!-- Logo lockup: two-part logo (icon + wordmark) -->
+    <a class="brand" href="/" aria-label="Corah home">
+      <!-- Part 1: Purple heart thumbprint (use inline SVG or <img>) -->
+      <img class="brand-mark" src="images/corah-brand-logo.svg" alt="" aria-hidden="true">
+      <!-- Part 2: Wordmark + subtitle -->
+      <span class="brand-text">
+        <span class="brand-title">Corah</span>
+        <span class="brand-subtitle">centre of rural aging &amp; health</span>
+      </span>
+    </a>
+
+    <!-- Nav: buttons/links from the design system -->
+    <nav class="primary-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a class="btn btn-ghost" href="#">Home</a></li>
+        <li><a class="btn btn-ghost" href="#">About</a></li>
+        <li><a class="btn btn-ghost" href="#">Programs</a></li>
+        <li><a class="btn btn-ghost" href="#">Events</a></li>
+        <li><a class="btn btn-primary" href="#">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 
   <main id="content">
+    
     <!-- Placeholder: hero comes in the next part -->
     <section class="hero placeholder" aria-label="Hero coming soon">
       <p>Hero implementation will follow the same tokenized, responsive approach.</p>

@@ -108,12 +108,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--space-32);       /* 32px gap between header and separator */
-
   padding-top: var(--space-32);   /* 32 */
   padding-right: var(--space-32); /* 32 */
   padding-bottom: 8px;            /* 8 */
   padding-left: var(--space-32);  /* 32 */
-
   background-color: var(--color-header-bg);
   color: var(--color-header-text);
 }
@@ -127,9 +125,9 @@ body {
 .header-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-
   gap: var(--space-32); /* 32px gap */
   padding: 0;           /* all padding = 0 */
 }
@@ -143,21 +141,20 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-
   gap: var(--space-16); /* 16px between logo and wordmark */
   padding: 0;
 }
 
 /* Brand logo SVG with fluid width */
 .corah-brand-logo {
-  width: clamp(72px, 2.5vw + 24px, 128px);
+  width: clamp(72px, 10vw + 24px, 128px);
   height: auto;
   display: block;
 }
 
 /* Brand wordmark SVG with fluid height */
 .corah-brand-wordmark-logo {
-  width: clamp(172px, 2.5vw + 24px, 304px);
+  width: clamp(172px, 30vw + 24px, 304px);
   height: auto;
   display: block;
 }
@@ -171,12 +168,10 @@ body {
 .nav-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-
   gap: var(--space-12);      /* 12px gap between button-containers */
- 
-
-  overflow-x: auto;
+  /* overflow-x: auto; */
 }
 
 /*
@@ -268,6 +263,8 @@ body {
   );
 }
 
+
+
 /* ========== 4. MEDIA QUERIES (LAYOUT ENHANCEMENT) ========== */
 
 /* Tablet and up (≥ 768px) */
@@ -280,7 +277,7 @@ body {
 /* Desktop and up (≥ 1024px) */
 @media (min-width: 1024px) {
   .header-container {
-    max-width: 1200px;
+    max-width: 1440px;
     margin-inline: auto; /* center header content */
   }
 }

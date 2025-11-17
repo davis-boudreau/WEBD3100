@@ -1,0 +1,157 @@
+/* Root font size */
+html {
+  font-size: 20px; /* 1rem = 20px */
+}
+
+/* Design tokens */
+:root {
+  /* Font sizes */
+  --font-size-base: clamp(0.875rem, 0.8vw + 0.6rem, 1rem);
+  --font-size-h1: clamp(2.488rem, 4vw + 1rem, 3.052rem);
+  --font-size-h2: clamp(2.074rem, 3vw + 0.8rem, 2.441rem);
+  --font-size-h3: clamp(1.728rem, 2.5vw + 0.6rem, 1.953rem);
+  --font-size-h4: clamp(1.44rem, 2vw + 0.4rem, 1.563rem);
+  --font-size-h5: clamp(1.2rem, 1.5vw + 0.3rem, 1.25rem);
+  --font-size-h6: clamp(1rem, 1vw + 0.2rem, 1.125rem);
+  --font-size-p: clamp(0.875rem, 0.8vw + 0.6rem, 1rem);
+  --font-size-small: clamp(0.75rem, 0.6vw + 0.4rem, 0.875rem);
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* Line heights */
+  --line-height-base: 1.6;
+  --line-height-tight: 1.2;
+
+  /* Colors (Light Mode) */
+  --text-color: #222;
+  --background-color: #fff;
+  --blockquote-color: #555;
+  --blockquote-border: #ccc;
+  --code-bg: #f5f5f5;
+
+  /* Responsive spacing tokens */
+
+/* 
+--space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+- Minimum: 0.25rem = 5px (tiny spacing for tight elements)
+- Preferred: 0.5vw (scales with viewport width)
+- Maximum: 0.5rem = 10px
+Use for very small gaps (e.g., between icons or inline elements).
+*/
+
+--space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+
+/* 
+--space-sm: clamp(0.5rem, 1vw, 1rem);
+- Minimum: 0.5rem = 10px
+- Preferred: 1vw (fluid scaling)
+- Maximum: 1rem = 20px
+Use for small margins/paddings (e.g., paragraph spacing).
+*/
+
+--space-sm: clamp(0.5rem, 1vw, 1rem);
+
+/* 
+--space-md: clamp(1rem, 2vw, 2rem);
+- Minimum: 1rem = 20px
+- Preferred: 2vw
+- Maximum: 2rem = 40px
+Use for medium spacing (e.g., section padding, heading margins).
+*/
+
+--space-md: clamp(1rem, 2vw, 2rem);
+
+/* 
+--space-lg: clamp(2rem, 4vw, 4rem);
+- Minimum: 2rem = 40px
+- Preferred: 4vw
+- Maximum: 4rem = 80px
+Use for large gaps (e.g., between major layout blocks).
+*/
+
+--space-lg: clamp(2rem, 4vw, 4rem);
+
+/* 
+--space-xl: clamp(4rem, 6vw, 6rem);
+- Minimum: 4rem = 80px
+- Preferred: 6vw
+- Maximum: 6rem = 120px
+Use for extra-large spacing (e.g., page sections or hero areas).
+*/
+
+--space-xl: clamp(4rem, 6vw, 6rem);
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #f0f0f0;
+    --background-color: #121212;
+    --blockquote-color: #ccc;
+    --blockquote-border: #666;
+    --code-bg: #1e1e1e;
+  }
+}
+
+/* Base styles */
+body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-family: system-ui, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: var(--space-md);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--space-sm);
+}
+
+h1 { font-size: var(--font-size-h1); line-height: var(--line-height-tight); margin-bottom: var(--space-md); }
+h2 { font-size: var(--font-size-h2); line-height: 1.25; margin-bottom: var(--space-md); }
+h3 { font-size: var(--font-size-h3); line-height: 1.3; margin-bottom: var(--space-sm); }
+h4 { font-size: var(--font-size-h4); line-height: 1.35; margin-bottom: var(--space-sm); }
+h5 { font-size: var(--font-size-h5); line-height: 1.4; margin-bottom: var(--space-xs); }
+h6 { font-size: var(--font-size-h6); line-height: 1.45; margin-bottom: var(--space-xs); }
+
+/* Paragraphs */
+p {
+  font-size: var(--font-size-p);
+  line-height: var(--line-height-base);
+  margin: 0 0 var(--space-sm);
+}
+
+small {
+  font-size: var(--font-size-small);
+  line-height: 1.4;
+}
+
+/* Lists */
+ul, ol {
+  margin: 0 0 var(--space-sm) var(--space-md);
+  padding: 0;
+  line-height: var(--line-height-base);
+}
+
+/* Blockquotes */
+blockquote {
+  font-size: var(--font-size-p);
+  font-style: italic;
+  border-left: 4px solid var(--blockquote-border);
+  padding-left: var(--space-sm);
+  margin: var(--space-sm) 0;
+  color: var(--blockquote-color);
+}
+
+/* Code blocks */
+code, pre {
+  font-family: monospace;
+  background: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: var(--font-size-small);
+}

@@ -26,26 +26,37 @@
   --neutral-800: #1F2933;
   --neutral-900: #111827;
 
+  
   /* Typography tokens with clamp() for fluid scaling */
   --font-family-sans: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /*
     Base text (P):
-    Min: 1rem (~16px), Max: 1.25rem (~20px)
+    Min: 0.833rem (16.67px), Max: 1rem (~20px)
+    1.25vw = 1.25% of viewport width + 0.5rem adds a base offset so it’s never too small
   */
-  --font-size-base: clamp(1rem, 0.4vw + 0.9rem, 1.25rem);
-
+  --font-size-base: clamp(0.694rem, 1.25vw + 0.5rem, 1rem);
+  
   /*
     H1 heading:
-    Min: ~36px, Max: ~59.72px (from your type scale)
+    1.2rem → smallest size (24px)
+    3vw + 1rem → fluid scaling based on viewport width
+    3vw = 3% of viewport width + 1rem ensures a base size even on small screens
+    2.986rem → largest size (≈59.72px)
   */
-  --font-size-h1: clamp(2.25rem, 3vw + 1.5rem, 3.73rem);
+  
+/* Headings (modular scale ~1.25) */
+  --font-size-h1: clamp(2.488rem, 4vw + 1rem, 3.052rem);
+  --font-size-h2: clamp(2.074rem, 3vw + 0.8rem, 2.441rem);
+  --font-size-h3: clamp(1.728rem, 2.5vw + 0.6rem, 1.953rem);
+  --font-size-h4: clamp(1.44rem, 2vw + 0.4rem, 1.563rem);
+  --font-size-h5: clamp(1.2rem, 1.5vw + 0.3rem, 1.25rem);
+  --font-size-h6: clamp(1rem, 1vw + 0.2rem, 1.125rem);
 
-  /*
-    Small supporting text:
-    Min: ~12.8px, Max: ~13.89px
-  */
-  --font-size-small: clamp(0.8rem, 0.1vw + 0.78rem, 0.87rem);
+
+ /* Paragraph sizes */
+  --font-size-p: clamp(0.875rem, 0.8vw + 0.6rem, 1rem);
+  --font-size-small: clamp(0.75rem, 0.6vw + 0.4rem, 0.875rem);
 
   --line-height-base: 1.5;
   --line-height-heading: 1.1;
@@ -87,6 +98,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 20px; /* now 1rem = 20px */
+}
+
 body {
   margin: 0;
   font-family: var(--font-family-sans);
@@ -94,7 +109,57 @@ body {
   line-height: var(--line-height-base);
   color: var(--neutral-900);
   background-color: var(--neutral-50);
+  line-height: 1.6;
 }
+
+
+/* Paragraphs */
+p {
+  font-size: var(--font-size-p);
+  line-height: 1.6;
+  margin: 0 0 1em;
+}
+
+small {
+  font-size: var(--font-size-small);
+  line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+  line-height: 1.35;
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+  line-height: 1.4;
+}
+
+h6 {
+  font-size: var(--font-size-h6);
+  line-height: 1.45;
+}
+
 
 /* ========== 3. HEADER SECTION & LAYOUT (Figma → CSS) ========== */
 
@@ -105,16 +170,54 @@ body {
   - Paddings: top 32, right 32, bottom 8, left 32.
 */
 .header-section-container {
-  
   display: flex;
   flex-direction: column;
-  gap: var(--space-32);       /* 32px gap between header and separator */
-  padding-top: var(--space-32);   /* 32 */
-  padding-right: var(--space-32); /* 32 */
-  padding-bottom: 8px;            /* 8 */
-  padding-left: var(--space-32);  /* 32 */
   background-color: var(--color-header-bg);
   color: var(--color-header-text);
+  font-size: var(--font-size-base);
+  gap: clamp(0.5rem, 2vw + 0.25rem, 2rem);
+
+  /*
+padding-top: clamp(1rem, 2vw + 0.5rem, 2rem);
+- Minimum: 1rem = 20px (ensures at least 20px top padding)
+- Preferred: 2vw + 0.5rem
+    • 2vw = 2% of viewport width (fluid scaling)
+    • + 0.5rem = +10px
+    So on a 1000px wide screen: 2vw = 20px + 10px = 30px
+- Maximum: 2rem = 40px (caps top padding so it doesn’t get too large)
+*/
+
+/* 
+padding-right: clamp(0.5rem, 2vw + 0.25rem, 2rem);
+- Minimum: 0.5rem = 10px
+- Preferred: 2vw + 0.25rem
+    • 2vw = fluid scaling
+    • + 0.25rem = +5px
+    Example: 1000px viewport → 2vw = 20px + 5px = 25px
+- Maximum: 2rem = 40px
+*/
+
+/* 
+padding-bottom: clamp(0.25rem, 1vw + 0.1rem, 0.5rem);
+- Minimum: 0.25rem = 5px (tight bottom padding)
+- Preferred: 1vw + 0.1rem
+    • 1vw = fluid scaling
+    • + 0.1rem = +2px
+    Example: 1000px viewport → 1vw = 10px + 2px = 12px
+- Maximum: 0.5rem = 10px (keeps bottom padding small)
+*/
+
+/* 
+padding-left: clamp(0.5rem, 2vw + 0.25rem, 2rem);
+- Same logic as padding-right:
+    • Min: 0.5rem = 10px
+    • Preferred: 2vw + 0.25rem (~25px on 1000px screen)
+    • Max: 2rem = 40px
+*/
+  padding-top: clamp(0.833rem, 2vw + 0.5rem, 1.6rem);
+  padding-right: clamp(0.399rem, 2vw + 0.25rem, 1.6rem);
+  padding-bottom: clamp(0.2rem, 1vw + 0.1rem, 0.399rem);
+  padding-left: clamp(0.399rem, 2vw + 0.25rem, 1.6rem);
 }
 
 /*
@@ -128,8 +231,8 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-32); /* 32px gap */
+  justify-content:space-between;
+  gap: var(--space-32); /* 16px gap */
   padding: 0;           /* all padding = 0 */
 }
 
@@ -141,6 +244,7 @@ body {
 .logo-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-16); /* 16px between logo and wordmark */
   padding: 0;
@@ -148,14 +252,14 @@ body {
 
 /* Brand logo SVG with fluid width */
 .corah-brand-logo {
-  width: clamp(72px, 10vw + 24px, 128px);
+  width: clamp(72px, 10vw + 1.2rem, 128px);
   height: auto;
   display: block;
 }
 
 /* Brand wordmark SVG with fluid height */
 .corah-brand-wordmark-logo {
-  width: clamp(172px, 30vw + 24px, 304px);
+  width: clamp(172px, 30vw + 1.2rem, 304px);
   height: auto;
   display: block;
 }
@@ -171,8 +275,9 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-12);      /* 12px gap between button-containers */
+  gap: var(--space-3);      /* 12px gap between button-containers */
   /* overflow-x: auto; */
+  
 }
 
 /*
@@ -184,30 +289,21 @@ body {
   margin: 0;
 }
 
-/*
-  nav-link (equivalent of Figma "button"):
-  - Padding-left/right: 24
-  - Padding-top: 8, bottom: 12
-  - Rounded pill, no text decoration.
-*/
 .nav-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  padding-top: 8px;
-  padding-right: 24px;
-  padding-bottom: 12px;
-  padding-left: 24px;
-
   border-radius: var(--radius-pill);
-  border: none;
+  border: solid var(--brand-600);
   text-decoration: none;
+  color: var(--brand-600);
+  font-weight: 700;
+  
+  
+  font-size: var(--font-size-base);
+  padding: 0.4em 1.2em 0.6em 1.2em; /* balanced pill look */
 
-  font-size: clamp(0.85rem, 0.3vw + 0.8rem, 1rem);
-  font-weight: 600;
-
-  color: var(--color-header-link-primary);
   background-color: var(--color-header-link-primary-bg);
 
   white-space: nowrap;
@@ -216,6 +312,7 @@ body {
 /* Hover state for primary nav links */
 .nav-link:hover {
   background-color: var(--color-header-link-primary-bg-hover);
+  color: var(--color-focus-ring);
 }
 
 /* Active/current page link (aria-current="page") */
@@ -268,18 +365,59 @@ body {
 
 /* ========== 4. MEDIA QUERIES (LAYOUT ENHANCEMENT) ========== */
 
-/* Tablet and up (≥ 768px) */
-@media (min-width: 768px) {
-  .nav-container {
-    overflow-x: visible; /* nav should fit without scrolling */
-  }
-}
+/*
+   Nav Links
+   Mobile (small): 0px – 480px
+   Use 0.694rem for tight spaces.
+   Tablet (medium): 481px – 1023px
+   Use 0.833rem for better readability.
+   Desktop (large): 1024px and up
+   Use 1rem for maximum size.
+*/
 
-/* Desktop and up (≥ 1024px) */
-@media (min-width: 1024px) {
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+
+:root {
+    --font-size-base: 0.694rem; /* desktop */
+  }
   .header-container {
-    max-width: 1440px;
-    margin-inline: auto; /* center header content */
+    justify-content: center;
+  }
+  .logo-container {
+    justify-content: center;
+  }
+  .nav-container {
+    justify-content: center;
   }
 }
 
+
+/* Tablet: 744px and up */
+@media (min-width: 481px) and (max-width: 1023px) {
+  
+  
+:root {
+    --font-size-base: 0.833rem; /* desktop */
+  }
+
+  .header-container {
+    justify-content: center;
+  }
+  .logo-container {
+    justify-content: center;
+  }
+  .nav-container {
+    justify-content: center;
+  }
+
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+  
+:root {
+    --font-size-base: 1rem; /* desktop */
+  }
+
+}

@@ -13,6 +13,10 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
     rel="stylesheet"
   >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,14 +25,15 @@
   <!--
     header-section-container:
     Top-level header region (banner landmark).
-    We’ll apply tokens, spacing, and background color here.
+    We apply tokens, spacing, and background color here.
   -->
   <header class="header-section-container">
+
     <!--
       header-container:
       Horizontal Flexbox row:
-        - logo-container on the left
-        - nav-container on the right
+      - logo-container on the left
+      - nav-container on the right (on desktop)
     -->
     <div class="header-container">
 
@@ -50,7 +55,7 @@
         <!-- Brand wordmark: CORAH name + tagline -->
         <img
           src="images/corah-brand-wordmark-logo.svg"
-          alt="CORAH – Centre of Rural Aging & Health"
+          alt="CORAH – Centre of Rural Aging &amp; Health"
           class="corah-brand-wordmark-logo"
         >
       </div>
@@ -62,43 +67,44 @@
       -->
       <nav class="nav-container" aria-label="Main">
         <!--
-          Each button-container wraps one nav link.
+          Each nav-button wraps one nav link.
           Figma’s button padding is applied inside the link (.nav-link).
         -->
-        <div class="button-container">
+        <div class="nav-button">
           <a class="nav-link is-active" href="index.html" aria-current="page">
-            Home
+            home
           </a>
         </div>
-        <div class="button-container">
+        <div class="nav-button">
           <a class="nav-link" href="about.html">
-            About
+            about
           </a>
         </div>
-        <div class="button-container">
+        <div class="nav-button">
           <a class="nav-link" href="events.html">
-            Events
+            events
           </a>
         </div>
-        <div class="button-container">
+        <div class="nav-button">
           <a class="nav-link" href="register.html">
-            Register
+            register
           </a>
         </div>
-        
-        <div class="button-container">
+        <div class="nav-button">
           <a class="nav-link" href="profile.html">
-            My Profile
+            my profile
           </a>
         </div>
-        <div class="button-container">
-          <a class="nav-link" href="login.html">
-            Login
+
+        <!-- Secondary actions (styled with .nav-link--secondary in CSS) -->
+        <div class="nav-button">
+          <a class="nav-link nav-link--secondary" href="login.html">
+            login
           </a>
         </div>
-        <div class="button-container">
-          <a class="nav-link" href="logout.html">
-            Logout
+        <div class="nav-button">
+          <a class="nav-link nav-link--secondary" href="logout.html">
+            logout
           </a>
         </div>
       </nav>

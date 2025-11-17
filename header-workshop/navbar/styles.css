@@ -1,0 +1,95 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 0.5rem 1rem;
+  color: #fff;
+}
+
+.navbar__brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar__menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar__menu li {
+  margin-left: 1rem;
+}
+
+.navbar__link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  transition: background 0.3s;
+}
+
+.navbar__link:hover {
+  background: #444;
+  border-radius: 4px;
+}
+
+/* Button Style */
+.navbar__btn {
+  background: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.navbar__btn:hover {
+  background: #e64a19;
+}
+
+/* Toggle Button */
+.navbar__toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar__menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #333;
+    margin-top: 0.5rem;
+  }
+
+  .navbar__menu.active {
+    display: flex;
+  }
+
+  .navbar__menu li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .navbar__toggle {
+    display: block;
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Mobile-first viewport for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORAH – Header Demo</title>
+
+  <!-- Google Fonts: Open Sans (body) + Montserrat (headings/buttons) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+
+  <!-- Page header: logo + main navigation -->
+  <header class="header-section-container">
+    <div class="header-container">
+
+      <!-- Logo group (icon + wordmark) -->
+      <div class="logo-container">
+        <!-- Icon links back to the homepage -->
+        <a href="index.html" class="brand-link" aria-label="CORAH Home">
+          <img
+            src="images/corah-brand-logo.svg"
+            alt=""
+            class="corah-brand-logo"
+          >
+          <!-- alt="" because the wordmark provides the name -->
+        </a>
+
+        <img
+          src="images/corah-brand-wordmark-logo.svg"
+          alt="CORAH – Centre of Rural Aging &amp; Health"
+          class="corah-brand-wordmark-logo"
+        >
+      </div>
+
+      <!-- Main navigation -->
+      <nav class="nav-container" aria-label="Main">
+        <div class="nav-button">
+          <a class="nav-link is-active" href="index.html" aria-current="page">
+            home
+          </a>
+        </div>
+        <div class="nav-button">
+          <a class="nav-link" href="about.html">
+            about
+          </a>
+        </div>
+        <div class="nav-button">
+          <a class="nav-link" href="events.html">
+            events
+          </a>
+        </div>
+        <div class="nav-button">
+          <a class="nav-link" href="register.html">
+            register
+          </a>
+        </div>
+        <div class="nav-button">
+          <a class="nav-link" href="profile.html">
+            my profile
+          </a>
+        </div>
+
+        <!-- Secondary actions -->
+        <div class="nav-button">
+          <a class="nav-link nav-link--secondary" href="login.html">
+            login
+          </a>
+        </div>
+        <div class="nav-button">
+          <a class="nav-link nav-link--secondary" href="logout.html">
+            logout
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Decorative separator under the header -->
+    <div class="separator-container">
+      <div class="separator" role="presentation"></div>
+    </div>
+  </header>
+
+</body>
+</html>

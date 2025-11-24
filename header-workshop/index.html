@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CORAH – Header Demo</title>
 
-  <!-- Open Sans from Google Fonts (design system font) -->
+  <!-- Google Fonts: Open Sans (body) + Montserrat (headings/buttons) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -22,37 +22,22 @@
 </head>
 <body>
 
-  <!--
-    header-section-container:
-    Top-level header region (banner landmark).
-    We apply tokens, spacing, and background color here.
-  -->
-  <header class="header-section-container">
-
-    <!--
-      header-container:
-      Horizontal Flexbox row:
-      - logo-container on the left
-      - nav-container on the right (on desktop)
-    -->
+  <!-- Page header: logo + main navigation -->
+  <header class="header-section-container" role="banner">
     <div class="header-container">
 
-      <!--
-        logo-container:
-        Holds CORAH brand logo + wordmark, exported from Figma as SVGs.
-      -->
+      <!-- Logo group (icon + wordmark) -->
       <div class="logo-container">
-        <!-- Brand icon/logo: linked to home -->
+        <!-- Icon links back to the homepage -->
         <a href="index.html" class="brand-link" aria-label="CORAH Home">
           <img
             src="images/corah-brand-logo.svg"
             alt=""
             class="corah-brand-logo"
           >
-          <!-- alt="" because the brand name is provided in the wordmark -->
+          <!-- alt="" because the wordmark provides the name -->
         </a>
 
-        <!-- Brand wordmark: CORAH name + tagline -->
         <img
           src="images/corah-brand-wordmark-logo.svg"
           alt="CORAH – Centre of Rural Aging &amp; Health"
@@ -60,16 +45,8 @@
         >
       </div>
 
-      <!--
-        nav-container:
-        Main navigation landmark for the site.
-        aria-label="Main" helps screen readers.
-      -->
-      <nav class="nav-container" aria-label="Main">
-        <!--
-          Each nav-button wraps one nav link.
-          Figma’s button padding is applied inside the link (.nav-link).
-        -->
+      <!-- Main navigation -->
+      <nav class="nav-container" aria-label="Main navigation">
         <div class="nav-button">
           <a class="nav-link is-active" href="index.html" aria-current="page">
             home
@@ -96,7 +73,7 @@
           </a>
         </div>
 
-        <!-- Secondary actions (styled with .nav-link--secondary in CSS) -->
+        <!-- Secondary actions -->
         <div class="nav-button">
           <a class="nav-link nav-link--secondary" href="login.html">
             login
@@ -110,11 +87,7 @@
       </nav>
     </div>
 
-    <!--
-      separator-container:
-      Holds a decorative line separating header from the next section.
-      role="presentation" hides it from screen readers.
-    -->
+    <!-- Decorative separator under the header -->
     <div class="separator-container">
       <div class="separator" role="presentation"></div>
     </div>

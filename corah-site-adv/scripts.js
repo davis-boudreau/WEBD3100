@@ -15,6 +15,7 @@ function loadHTML(id, file) {
 window.addEventListener("DOMContentLoaded", () => 
   {
     loadHTML("header-placeholder", "header.html");
+    loadHTML("")
     loadHTML("footer-placeholder", "footer.html");
 
     // Select all nav pills

@@ -1,3 +1,4 @@
+:root { --header-h: 229px; }  /* set your header height once */
 /* -------------------- CSS RESET -------------------- */
 /* Reset default browser styles: remove margins/padding and set box-sizing to border-box */
 *,
@@ -21,6 +22,9 @@ html {
 /* -------------------- BODY -------------------- */
 body {
     background-color: white; /* Keeps body background white */
+    padding-top: var(--header-h);
+    /* For anchor links: */
+    scroll-padding-top: calc(var(--header-h) + 8px);
 }
 
 header {
@@ -28,6 +32,13 @@ header {
   flex-direction: column;
   padding: 32px;
   gap: 32px;
+  /* Fix the header */
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  z-index: 1000;
+  background: #fff;
+  
 }
 .header-container {
   display: flex;

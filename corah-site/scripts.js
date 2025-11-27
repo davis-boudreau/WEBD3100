@@ -24,7 +24,7 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, {
-  threshold: 0.5 // 50% of section must be visible to trigger
+  threshold: 1 // 50% of section must be visible to trigger
 });
 
 // Attach observer to each section

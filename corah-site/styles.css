@@ -102,6 +102,38 @@ header {
   text-decoration: underline;  /* Adds underline for feedback */
 }
 
+.hero-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
+  
+  gap: 16px;
+  padding: 32px;
+  
+}
+
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 8px 32px 32px;
+  border: 2px solid black;
+  min-width: 304px;
+max-width: 464px;
+}
+
+.hero-image-container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  
+}
+
+.hero-image {
+  width: 304px;
+  height: auto;
+  border: 2px solid black;
+}
 
 
 

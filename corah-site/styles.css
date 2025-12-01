@@ -1,4 +1,7 @@
-:root { --header-h: 229px; }  /* set your header height once */
+:root { 
+  --header-h: 229px;   /* set your header height once */
+  --footer-h: 229px;  /* set your footer height once */
+}  
 /* -------------------- CSS RESET -------------------- */
 /* Reset default browser styles: remove margins/padding and set box-sizing to border-box */
 *,
@@ -17,29 +20,37 @@ html {
    font-family: "Open Sans", Arial, Helvetica, sans-serif;
    font-size: 20px;
    scroll-behavior: smooth;
+   scroll-padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px));
 }
 
 /* -------------------- BODY -------------------- */
 body {
+    display: flex;
+    flex-direction: column;   /* Stack header → main → footer */
+    min-height: 100vh;        /* Full viewport height */
     background-color: white; /* Keeps body background white */
-    padding-top: var(--header-h);
     /* For anchor links: */
     scroll-padding-top: calc(var(--header-h) + 8px);
 }
 
-header {
+h5 {
+  margin-bottom: 8px;
+}
+
+
+/* Sticky header */
+#site-header {
   display: flex;
   flex-direction: column;
   padding: 32px;
   gap: 32px;
-  /* Fix the header */
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: var(--header-h);
+  position: sticky;
+  top: 0;
   z-index: 1000;
   background: #fff;
   
 }
+
 .header-container {
   display: flex;
   flex-direction: row;
@@ -110,13 +121,167 @@ header {
   border: 2px solid #7b458f;   /* Keeps border consistent */
 }
 
-section {
-  padding: 32px;
+
+
+/* --- Base Footer Styling (Same as before) --- */
+#site-footer {
+    background-color: #420E53;
+    color: #fff;
+}
+
+/* Content wrapper to center and limit width */
+.footer-container {
+  /* 1. Enable CSS Grid */
+    display: grid; 
+    /* 2. Set consistent gap between grid items */
+    gap: 32px;  
+    padding: 32px; 
+    align-items: center;
 }
 
 
+/* ------------------------------------------- */
+/* 3. DESKTOP/LARGE SCREEN LAYOUT (4 Columns)  */
+/* ------------------------------------------- */
+@media (min-width: 1024px) {
+    .footer-container {
+        /* Define 4 equal-width columns (1fr each) */
+        grid-template-columns: repeat(4, 1fr);
+        
+    }
+}
 
 
+/* ------------------------------------------- */
+/* 4. TABLET/MEDIUM SCREEN LAYOUT (2 Columns)  */
+/* ------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .footer-container {
+        /* Define 2 equal-width columns */
+        grid-template-columns: repeat(2, 1fr); 
+        
+        /* Optional: Span the sitemap/sponsors items to align them */
+        /* This places Newsletter and Get in Touch on the first row, 
+           and Sitemap and Sponsors on the second row. */
+    }
+
+    /* Since the Newsletter and Get in Touch sections may be taller, 
+       we can optionally force the sitemap and sponsors to start on a new row */
+    .sitemap {
+        grid-column: 1 / span 1; /* Start at column 1, span 1 column */
+    }
+    
+    .sponsors {
+        grid-column: 2 / span 1; /* Start at column 2, span 1 column */
+    }
+}
 
 
+/* ------------------------------------------- */
+/* 5. MOBILE/SMALL SCREEN LAYOUT (1 Column)    */
+/* ------------------------------------------- */
+@media (max-width: 767px) {
+    .footer-container {
+        /* Define 1 column that takes up all available space */
+        grid-template-columns: 1fr; 
+    }
 
+    /* Optional: Center-align content on small screens */
+    .footer-container > * {
+        text-align: center;
+    }
+
+    .getintouch .row {
+        justify-content: center;
+    }
+}
+
+
+/* --- Other Styling --- */
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formfield {
+  border: 2px solid #7b458f;
+  border-radius: 32px;
+  min-width: 200px;
+  height: 32px;
+}
+
+.sitemap {
+  text-align: center;
+}
+
+.sitemap-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sitemap a, .legal a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.getintouch .row {
+    display: flex;
+    align-items: center;
+}
+
+.getintouch img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+
+.partners {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partner-logos img {
+    max-width: 100%;
+    height: auto;
+}
+
+.legal {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.footericon {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
+
+.footerbtn {
+  display: inline-block; /* Makes links behave like blocks but inline */
+  padding-top: 10px;
+  padding-right: 22px;
+  padding-bottom: 14px;
+  padding-left: 22px;
+  border-radius: 32px;
+  border: 2px solid #7b458f;
+  font-weight: 600;
+  color: #7b458f;
+  text-decoration: none;
+  background-color: #FFEBFF;
+}
+
+.footerbtn:hover, .footerbtn:focus {
+  background-color: #420e53;
+  color: #fff;
+  border: 2px solid #7b458f;
+}

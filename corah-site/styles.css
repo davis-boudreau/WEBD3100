@@ -33,6 +33,10 @@ body {
     scroll-padding-top: calc(var(--header-h) + 8px);
 }
 
+section {
+  padding: 32px;
+}
+
 h5 {
   margin-bottom: 8px;
 }
@@ -148,6 +152,7 @@ h5 {
         /* Define 4 equal-width columns (1fr each) */
         grid-template-columns: repeat(4, 1fr);
         
+        
     }
 }
 
@@ -233,9 +238,17 @@ h5 {
     text-decoration: none;
 }
 
+.getintouch .title { 
+  text-align: center;
+}
 .getintouch .row {
     display: flex;
     align-items: center;
+}
+
+.getintouch a {
+    text-decoration: none;
+    color: white;
 }
 
 .getintouch img {
@@ -263,7 +276,7 @@ h5 {
 .footericon {
   width: 32px;
   height: 32px;
-  fill:
+  
 }
 
 .footerbtn {

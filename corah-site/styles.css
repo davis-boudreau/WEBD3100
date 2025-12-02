@@ -37,6 +37,7 @@ section {
   padding: 32px;
 }
 
+
 h5 {
   margin-bottom: 8px;
 }
@@ -126,22 +127,20 @@ h5 {
 }
 
 
-
 /* --- Base Footer Styling (Same as before) --- */
 #site-footer {
     background-color: #420E53;
     color: #fff;
 }
 
-/* Content wrapper to center and limit width */
 .footer-container {
-  /* 1. Enable CSS Grid */
-    display: grid; 
-    /* 2. Set consistent gap between grid items */
-    gap: 32px;  
-    padding: 32px; 
-    align-items: center;
+  display: grid;
+  gap: 32px;
+  padding: 32px;
+  align-items: start;     /* Align content at the top of each grid cell */
+  justify-items: center;  /* Center horizontally within each cell */
 }
+
 
 
 /* ------------------------------------------- */
@@ -151,11 +150,8 @@ h5 {
     .footer-container {
         /* Define 4 equal-width columns (1fr each) */
         grid-template-columns: repeat(4, 1fr);
-        
-        
     }
 }
-
 
 /* ------------------------------------------- */
 /* 4. TABLET/MEDIUM SCREEN LAYOUT (2 Columns)  */
@@ -210,11 +206,10 @@ h5 {
   align-items: center;
 }
 
-
 .newsletter-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  
 }
 
 .formfield {
@@ -224,59 +219,10 @@ h5 {
   height: 32px;
 }
 
-.sitemap {
-  text-align: center;
-}
-
-.sitemap-list {
-    list-style: none;
-    padding: 0;
-}
-
-.sitemap a, .legal a {
-    color: #ccc;
-    text-decoration: none;
-}
-
-.getintouch .title { 
-  text-align: center;
-}
-.getintouch .row {
-    display: flex;
-    align-items: center;
-}
-
-.getintouch a {
-    text-decoration: none;
-    color: white;
-}
-
-.getintouch img {
-    width: 32px;
-    height: 32px;
-    margin-right: 8px;
-}
-
-.partners {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.partner-logos img {
-    max-width: 100%;
-    height: auto;
-}
-
-.legal {
-    text-align: center;
-    margin-bottom: 8px;
-}
-
-.footericon {
-  width: 32px;
-  height: 32px;
-  
+.UI-status {
+  display: inline-block;
+  height: 1.5rem;
+  width: auto;
 }
 
 .footerbtn {
@@ -298,3 +244,67 @@ h5 {
   color: #fff;
   border: 2px solid #7b458f;
 }
+
+.sitemap {
+  text-align: center;
+
+}
+
+.sitemap-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sitemap a, .legal a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.getintouch {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.getintouch .title { 
+  text-align: center;
+}
+.getintouch .row {
+    display: flex;
+    align-items: center;
+    
+}
+
+.getintouch a {
+    text-decoration: none;
+    color: white;
+}
+
+.getintouch img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+
+.partners {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+}
+
+.partner-logos img {
+    max-width: 100%;
+    height: auto;
+}
+
+.legal {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.footericon {
+  width: 32px;
+  height: 32px;
+  
+}
+

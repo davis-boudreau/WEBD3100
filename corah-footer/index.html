@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Footer Component – Corah</title>
+
+  <style>
+    /* ===========================================================
+       CORAH FOOTER COMPONENT  |  HTML + CSS + JS SINGLE FILE
+       =========================================================== */
+
+    /* ---------- Color Tokens (Brand + Neutral) ---------- */
+    :root {
+      --brand-500: #7B458F;
+      --neutral-0: #ffffff;
+      --neutral-100: #f6f7f9;
+      --neutral-700: #1a1a1f;
+      --neutral-800: #0f0f12;
+      --neutral-900: #0a0a0d;
+      --accent: var(--brand-500);
+    }
+
+    /* ---------- Base Footer Styles ---------- */
+    #site-footer {
+      background-color: var(--neutral-800);
+      color: var(--neutral-0);
+      font-family: "Open Sans", Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem 1.25rem;
+      max-width: 1200px;
+      margin-inline: auto;
+      align-items: start;
+    }
+
+    .footer-section {
+      display: block;
+    }
+
+    .footer-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    /* ---------- Responsive Grid ---------- */
+    @media (min-width: 600px) {
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .footer-container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* ---------- Newsletter ---------- */
+    .newsletter-form {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .formfield {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid #2a2a32;
+      background-color: #1a1a1f;
+      color: #ffffff;
+    }
+
+    .formfield:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .subscribe-status {
+      min-height: 1.25rem;
+      font-size: 0.9rem;
+      color: #cfd3da;
+    }
+
+    .footerbtn {
+      display: block;
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter 0.2s ease;
+    }
+
+    .footerbtn:hover,
+    .footerbtn:focus-visible {
+      filter: brightness(1.15);
+    }
+
+    /* ---------- Get in Touch ---------- */
+    .contact-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.6rem;
+      align-items: start;
+    }
+
+    .footericon {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    /* ---------- Site Map ---------- */
+    .sitemap-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .sitemap-list a,
+    .contact-list a {
+      color: #cfd3da;
+      text-decoration: none;
+    }
+
+    .sitemap-list a:hover,
+    .contact-list a:hover {
+      color: var(--neutral-0);
+      text-decoration: underline;
+    }
+
+    /* ---------- Partners ---------- */
+    .partner-block {
+      display: block;
+      margin-block: 0.5rem 1rem;
+    }
+
+    .partner-label {
+      margin: 0 0 0.25rem 0;
+      color: #cfd3da;
+      font-size: 0.95rem;
+    }
+
+    .partners img {
+      display: block;
+      max-width: 160px;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ---------- Disclaimer ---------- */
+    .footer-disclaimer {
+      border-top: 1px solid #1f1f24;
+      padding: 0.9rem 1.25rem;
+      color: #cfd3da;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .footer-disclaimer a {
+      color: #cfd3da;
+      text-decoration: none;
+    }
+
+    .footer-disclaimer a:hover {
+      color: var(--neutral-0);
+      text-decoration: underline;
+    }
+
+    /* ---------- Accessibility Utility ---------- */
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =========================================================
+       FOOTER COMPONENT
+       ========================================================= -->
+  <footer id="site-footer" role="contentinfo">
+
+    <div class="footer-container">
+
+      <!-- 1) Newsletter -->
+      <section class="footer-section newsletter" aria-labelledby="newsletter-title">
+        <h5 id="newsletter-title" class="footer-title">Join our newsletter</h5>
+        <form action="#" method="post" class="newsletter-form" novalidate>
+          <label for="newsletter-email" class="visually-hidden">Email address</label>
+          <input class="formfield" type="email" id="newsletter-email" name="email" placeholder="you@example.com" required>
+          <div id="subscribe-status" class="subscribe-status" aria-live="polite"></div>
+          <button type="submit" class="footerbtn">Subscribe</button>
+        </form>
+      </section>
+
+      <!-- 2) Get in touch -->
+      <section class="footer-section getintouch" aria-labelledby="getintouch-title">
+        <h5 id="getintouch-title" class="footer-title">Get in touch</h5>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <img class="footericon" src="icons/icon-location-dark.svg" alt="" aria-hidden="true">
+            <a href="https://maps.google.com/?q=223+Reeves+St,+Port+Hawkesbury,+NS+B9A+2A2">223 Reeves St., Port Hawkesbury, NS B9A 2A2</a>
+          </li>
+          <li class="contact-item">
+            <img class="footericon" src="icons/icon-email-dark.svg" alt="" aria-hidden="true">
+            <a href="mailto:info@corah.ca">info@corah.ca</a>
+          </li>
+          <li class="contact-item">
+            <img class="footericon" src="icons/icon-fb-dark.svg" alt="" aria-hidden="true">
+            <a href="https://facebook.com/corah" rel="noopener">Facebook</a>
+          </li>
+          <li class="contact-item">
+            <img class="footericon" src="icons/icon-phone-dark.svg" alt="" aria-hidden="true">
+            <a href="tel:+19025551234">+1 (902) 555-1234</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 3) Site map -->
+      <nav class="footer-section sitemap" aria-labelledby="sitemap-title">
+        <h5 id="sitemap-title" class="footer-title">Site map</h5>
+        <ul class="sitemap-list">
+          <li><a href="/">Our Home Page</a></li>
+          <li><a href="/events">Explore Our Events</a></li>
+          <li><a href="/about">Learn More About Corah</a></li>
+          <li><a href="/attend">Attend an Event</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+
+      <!-- 4) Partners -->
+      <section class="footer-section partners" aria-labelledby="partners-title">
+        <h5 id="partners-title" class="footer-title">Partners</h5>
+        <div class="partner-block">
+          <p class="partner-label">Hosted by</p>
+          <img src="images/nscc.svg" alt="NSCC">
+        </div>
+        <div class="partner-block">
+          <p class="partner-label">Sponsored by</p>
+          <img src="images/novascotia.svg" alt="Government of Nova Scotia">
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="footer-disclaimer">
+      <p>
+        © <span id="year"></span> Corah — Centre of Rural Aging & Health.
+        <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Use</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ---------- Inline JavaScript ---------- -->
+  <script>
+    // Auto-fill the current year in the footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple front-end demo of subscribe interaction
+    const form = document.querySelector('.newsletter-form');
+    const status = document.getElementById('subscribe-status');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('newsletter-email').value.trim();
+      if (!email) {
+        status.textContent = 'Please enter an email address.';
+        status.style.color = '#ffcccc';
+        return;
+      }
+      status.textContent = 'Thank you for subscribing!';
+      status.style.color = '#aef2ae';
+      form.reset();
+    });
+  </script>
+</body>
+</html>

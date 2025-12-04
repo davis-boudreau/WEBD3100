@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <title>Responsive Footer Component – Corah</title>
 
   <style>
@@ -12,18 +15,28 @@
 
     /* ---------- Color Tokens (Brand + Neutral) ---------- */
     :root {
-      --brand-500: #7B458F;
-      --neutral-0: #ffffff;
-      --neutral-100: #f6f7f9;
-      --neutral-700: #1a1a1f;
-      --neutral-800: #0f0f12;
-      --neutral-900: #0a0a0d;
-      --accent: var(--brand-500);
+        --brand-50:     #F9F5FB;
+        --brand-100:	#F1E4F7;
+        --brand-200:	#E0C9ED;
+        --brand-300:	#C89FE1;
+        --brand-400:	#A971CF;
+        --brand-500:	#7B458F;
+        --brand-600:	#693B7C;
+        --brand-700:	#57316A;
+        --brand-800:	#442757;
+        --brand-900:	#321D44;
+        --brand-950:	#1F102A;
+        --accent: var(--brand-500);
+    }
+
+    html {
+        font-size: 20px;
+        font-weight: 500;
     }
 
     /* ---------- Base Footer Styles ---------- */
     #site-footer {
-      background-color: var(--neutral-800);
+      background-color: var(--brand-800);
       color: var(--neutral-0);
       font-family: "Open Sans", Arial, sans-serif;
       line-height: 1.5;
@@ -32,9 +45,9 @@
     .footer-container {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2rem;
-      padding: 2rem 1.25rem;
-      max-width: 1200px;
+      gap: 1.8rem;
+      padding: 1.8rem 1.8rem;
+      max-width: 90vw;
       margin-inline: auto;
       align-items: start;
     }
@@ -47,8 +60,9 @@
       font-family: "Montserrat", sans-serif;
       font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
       margin-bottom: 0.75rem;
-      font-weight: 700;
-      text-transform: capitalize;
+      font-weight: 600;
+      /* text-transform: capitalize; */
+      color: var(--brand-100);
     }
 
     /* ---------- Responsive Grid ---------- */
@@ -60,23 +74,30 @@
 
     @media (min-width: 900px) {
       .footer-container {
-        grid-template-columns: repeat(4, 1fr);
+        /* grid-template-columns: repeat(4, 1fr); */
+        grid-template-columns: 1fr 1fr 1fr 1fr;
       }
     }
 
     /* ---------- Newsletter ---------- */
+    .newsletter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .newsletter-form {
       display: grid;
       gap: 0.5rem;
+      width: 15rem;
     }
 
     .formfield {
-      width: 100%;
       padding: 0.75rem 0.9rem;
-      border-radius: 10px;
-      border: 1px solid #2a2a32;
-      background-color: #1a1a1f;
-      color: #ffffff;
+      border-radius: 10rem;
+      border: 1px solid var(--brand-950);
+      background-color: var(--brand-100);
+      color:var(--brand-800);
     }
 
     .formfield:focus {
@@ -91,11 +112,10 @@
     }
 
     .footerbtn {
-      display: block;
-      width: 100%;
-      padding: 0.7rem 1rem;
+      width: 5rem;
+      padding: 0.5rem 1rem 0.6rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 10rem;
       background-color: var(--accent);
       color: #fff;
       font-weight: 700;
@@ -121,7 +141,8 @@
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 0.6rem;
-      align-items: start;
+      align-items: center;
+      
     }
 
     .footericon {
@@ -131,6 +152,10 @@
     }
 
     /* ---------- Site Map ---------- */
+    .sitemap {
+        text-align: center;
+        min-width: 30vw;
+    }
     .sitemap-list {
       list-style: none;
       margin: 0;
@@ -152,20 +177,28 @@
     }
 
     /* ---------- Partners ---------- */
+ 
+    .partners {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .partner-block {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin-block: 0.5rem 1rem;
     }
 
     .partner-label {
       margin: 0 0 0.25rem 0;
-      color: #cfd3da;
+      color: #ffffff;
       font-size: 0.95rem;
     }
 
     .partners img {
       display: block;
-      max-width: 160px;
+      max-width: 132px;
       width: 100%;
       height: auto;
     }
@@ -210,18 +243,19 @@
 
       <!-- 1) Newsletter -->
       <section class="footer-section newsletter" aria-labelledby="newsletter-title">
-        <h5 id="newsletter-title" class="footer-title">Join our newsletter</h5>
+        <h6 id="newsletter-title" class="footer-title">join our newsletter</h6>
         <form action="#" method="post" class="newsletter-form" novalidate>
           <label for="newsletter-email" class="visually-hidden">Email address</label>
           <input class="formfield" type="email" id="newsletter-email" name="email" placeholder="you@example.com" required>
           <div id="subscribe-status" class="subscribe-status" aria-live="polite"></div>
-          <button type="submit" class="footerbtn">Subscribe</button>
+          <button type="submit" class="footerbtn">subscribe</button>
         </form>
+        
       </section>
 
       <!-- 2) Get in touch -->
       <section class="footer-section getintouch" aria-labelledby="getintouch-title">
-        <h5 id="getintouch-title" class="footer-title">Get in touch</h5>
+        <h6 id="getintouch-title" class="footer-title">get in touch</h6>
         <ul class="contact-list">
           <li class="contact-item">
             <img class="footericon" src="icons/icon-location-dark.svg" alt="" aria-hidden="true">
@@ -229,22 +263,22 @@
           </li>
           <li class="contact-item">
             <img class="footericon" src="icons/icon-email-dark.svg" alt="" aria-hidden="true">
-            <a href="mailto:info@corah.ca">info@corah.ca</a>
+            <a href="mailto:info@corah.ca">corah-strait@nscc.ca</a>
           </li>
           <li class="contact-item">
             <img class="footericon" src="icons/icon-fb-dark.svg" alt="" aria-hidden="true">
-            <a href="https://facebook.com/corah" rel="noopener">Facebook</a>
+            <a href="https://facebook.com/corah" rel="noopener">facebook.com/CORAHNSCCStrait</a>
           </li>
           <li class="contact-item">
             <img class="footericon" src="icons/icon-phone-dark.svg" alt="" aria-hidden="true">
-            <a href="tel:+19025551234">+1 (902) 555-1234</a>
+            <a href="tel:+19025551234">+1 (902) 625-2380</a>
           </li>
         </ul>
       </section>
 
       <!-- 3) Site map -->
       <nav class="footer-section sitemap" aria-labelledby="sitemap-title">
-        <h5 id="sitemap-title" class="footer-title">Site map</h5>
+        <h6 id="sitemap-title" class="footer-title">site map</h6>
         <ul class="sitemap-list">
           <li><a href="/">Our Home Page</a></li>
           <li><a href="/events">Explore Our Events</a></li>
@@ -256,13 +290,13 @@
 
       <!-- 4) Partners -->
       <section class="footer-section partners" aria-labelledby="partners-title">
-        <h5 id="partners-title" class="footer-title">Partners</h5>
+        <h6 id="partners-title" class="footer-title">partners</h6>
         <div class="partner-block">
-          <p class="partner-label">Hosted by</p>
+          <p class="partner-label">hosted by</p>
           <img src="images/nscc.svg" alt="NSCC">
         </div>
         <div class="partner-block">
-          <p class="partner-label">Sponsored by</p>
+          <p class="partner-label">sponsored by</p>
           <img src="images/novascotia.svg" alt="Government of Nova Scotia">
         </div>
       </section>
@@ -295,7 +329,7 @@
         return;
       }
       status.textContent = 'Thank you for subscribing!';
-      status.style.color = '#aef2ae';
+      status.style.color = '#00B900';
       form.reset();
     });
   </script>

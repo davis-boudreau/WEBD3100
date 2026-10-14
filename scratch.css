@@ -1,0 +1,242 @@
+/* Design System Studio V2.9 — My Project
+   Classroom-generated starting point. Review contrast and project requirements.
+   Foundation → Semantic → Components. */
+:root {
+  /* OFFICIAL NSCC BRAND: fixed reference colours. */
+  --nscc-white: #FFFFFF;
+  --nscc-blue: #004780;
+  --nscc-dark-grey: #495965;
+  --nscc-accent-teal: #00BADC;
+  --nscc-accent-turquoise: #5FC5BF;
+  --nscc-accent-orange: #F37327;
+  --nscc-accent-blue: #2B71B9;
+  --nscc-accent-green: #CBDB2A;
+  --nscc-accent-fuchsia: #EF426F;
+  --nscc-accent-light-blue: #57B7E7;
+  --nscc-accent-yellow: #FFEF00;
+
+  /* FOUNDATION: generated ramps are NOT additional official brand swatches. Step 500 is your chosen HEX. */
+  --primary-50: #F2F6F9;
+  --primary-100: #D9E3EC;
+  --primary-200: #B3C8D9;
+  --primary-300: #80A3C0;
+  --primary-400: #4075A0;
+  --primary-500: #004780;
+  --primary-600: #004073;
+  --primary-700: #003560;
+  --primary-800: #002B4D;
+  --primary-900: #00192D;
+  --primary-950: #000B13;
+  --secondary-50: #F6F7F7;
+  --secondary-100: #E4E6E8;
+  --secondary-200: #C8CDD1;
+  --secondary-300: #A4ACB2;
+  --secondary-400: #77838C;
+  --secondary-500: #495965;
+  --secondary-600: #42505B;
+  --secondary-700: #37434C;
+  --secondary-800: #2C353D;
+  --secondary-900: #1A1F23;
+  --secondary-950: #0B0D0F;
+  --accent-50: #F2FCFD;
+  --accent-100: #D9F5FA;
+  --accent-200: #B3EAF5;
+  --accent-300: #80DDEE;
+  --accent-400: #40CBE5;
+  --accent-500: #00BADC;
+  --accent-600: #00A7C6;
+  --accent-700: #008CA5;
+  --accent-800: #007084;
+  --accent-900: #00414D;
+  --accent-950: #001C21;
+
+  /* FOUNDATION: typography. Arial is the NSCC alternative to licensed Greycliff. */
+  --font-ui: Arial, Helvetica, sans-serif;
+  --font-size-base: 16px;
+  --type-ratio: 1.25;
+  --text-step-0: 10.2px;
+  --text-step-1: 12.8px;
+  --text-step-2: 16px;
+  --text-step-3: 20px;
+  --text-step-4: 25px;
+  --text-step-5: 31.3px;
+  --text-step-6: 39.1px;
+  --text-step-7: 48.8px;
+  --text-display: clamp(1.604rem, 1.272rem + 2vw, 1.956rem);
+  --body-leading: 1.55;
+  --heading-leading: 1.18;
+
+  /* FOUNDATION: spacing and corners */
+  --space-unit: 4px;
+  --space-2: calc(var(--space-unit) * 2);
+  --space-4: calc(var(--space-unit) * 4);
+  --radius-base: 12px;
+
+  /* SEMANTIC: light theme roles */
+  --background: #F3F6FA;
+  --surface: #FFFFFF;
+  --surface-muted: #EDF2F7;
+  --text: #14253A;
+  --text-muted: #53657A;
+  --border: #C5D0DD;
+  --primary: #004780;
+  --on-primary: #FFFFFF;
+  --primary-hover: #003560;
+  --secondary: #37434C;
+  --on-secondary: #FFFFFF;
+  --accent: #00BADC;
+  --on-accent: #14253A;
+  --success: #15803D;
+  --warning: #A85C00;
+  --danger: #B91C1C;
+  --focus: #9D5700;
+}
+/* SEMANTIC: dark theme swaps roles, not component rules. */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0B1422;
+  --surface: #152236;
+  --surface-muted: #20324B;
+  --text: #EEF4FC;
+  --text-muted: #B8C8DB;
+  --border: #60748D;
+  --primary: #80A3C0;
+  --on-primary: #14253A;
+  --primary-hover: #B3C8D9;
+  --secondary: #A4ACB2;
+  --on-secondary: #14253A;
+  --accent: #80DDEE;
+  --on-accent: #14253A;
+  --success: #4ADE80;
+  --warning: #FBBF24;
+  --danger: #FCA5A5;
+  --focus: #FBBF24;
+}
+/* COMPONENT: responsive, reusable and accessible starting points. */
+body { margin: 0; font: var(--font-size-base)/var(--body-leading) var(--font-ui); background: var(--background); color: var(--text); }
+.container { width: min(100% - 2rem, 72rem); margin-inline: auto; }
+.page-title { font-size: var(--text-display); line-height: var(--heading-leading); }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--space-4); }
+.card { padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-base); background: var(--surface); }
+.button { padding: var(--space-2) var(--space-4); border: 0; border-radius: calc(var(--radius-base) * .7); background: var(--primary); color: var(--on-primary); }
+.button:hover { background: var(--primary-hover); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; } }
+
+/* V2.6: ADVANCED COMPONENT TOKENS. Feedback colours live in the theme blocks above. */
+:root {
+  --focus-width: 3px;
+  --control-height: 42px;
+  --border-width: 1px;
+  --heading-weight: 700;
+  --reading-measure: 65ch;
+  --heading-tracking: -0.02em;
+  --grid-card-min: 210px;
+  --grid-gap: 12px;
+  --surface-opacity: 1;
+  --elevation: none;
+  --motion-duration: 150ms;
+}
+/* Interactive states: visible focus is essential for keyboard navigation. */
+.button { min-height: var(--control-height); border-width: var(--border-width); transition: background var(--motion-duration), transform var(--motion-duration); }
+.button:hover:not(:disabled) { background: var(--primary-hover); }
+.button:active:not(:disabled) { transform: translateY(2px); }
+.button:focus-visible, .input:focus-visible { outline: var(--focus-width) solid var(--focus); outline-offset: 3px; }
+.button:disabled { opacity: .55; cursor: not-allowed; }
+.button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--primary); }
+.input { min-height: var(--control-height); border: var(--border-width) solid var(--border); }
+.input[aria-invalid="true"] { border-color: var(--danger); }
+.input:read-only { background: var(--surface-muted); }
+.card { box-shadow: var(--elevation); border-width: var(--border-width); }
+.card-grid { gap: var(--grid-gap); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-card-min)), 1fr)); }
+.page-title { font-weight: var(--heading-weight); letter-spacing: var(--heading-tracking); }
+p { max-width: var(--reading-measure); }
+a { text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) { .button { transition: none; } }
+
+/* Design System Studio V2.9.1 · Button component CSS
+   FOUNDATION → COMPONENT TOKENS → STATES.
+   Verify text contrast in each theme and state. */
+:root {
+  --button-pad-x: 18px;
+  --button-pad-y: 12px;
+  --button-min-height: 44px;
+  --button-radius: 8px;
+  --button-border-width: 1px;
+  --button-font-weight: 600;
+  --button-focus: #F37327;
+  --button-focus-width: 3px;
+  --button-motion: 150ms;
+  /* Primary variant colours */
+  --button-primary-bg: #004780;
+  --button-primary-text: #FFFFFF;
+  --button-primary-border: transparent;
+  --button-primary-hover: #003b6a;
+  --button-primary-active: #003158;
+  --button-primary-hover-text: #FFFFFF;
+  --button-primary-active-text: #FFFFFF;
+  /* Secondary variant colours */
+  --button-secondary-bg: #495965;
+  --button-secondary-text: #FFFFFF;
+  --button-secondary-border: transparent;
+  --button-secondary-hover: #3d4a54;
+  --button-secondary-active: #323d46;
+  --button-secondary-hover-text: #FFFFFF;
+  --button-secondary-active-text: #FFFFFF;
+  /* Outline variant colours */
+  --button-outline-bg: transparent;
+  --button-outline-text: #004780;
+  --button-outline-border: #004780;
+  --button-outline-hover: #003b6a;
+  --button-outline-active: #003158;
+  --button-outline-hover-text: #FFFFFF;
+  --button-outline-active-text: #FFFFFF;
+  /* Text variant colours */
+  --button-text-bg: transparent;
+  --button-text-text: #004780;
+  --button-text-border: transparent;
+  --button-text-hover: #003b6a;
+  --button-text-active: #003158;
+  --button-text-hover-text: #FFFFFF;
+  --button-text-active-text: #FFFFFF;
+}
+/* Base component: reusable for all variants. */
+.ds-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: .5em; min-height: var(--button-min-height);
+  padding: var(--button-pad-y) var(--button-pad-x);
+  border: var(--button-border-width) solid transparent;
+  border-radius: var(--button-radius);
+  font: inherit; font-weight: var(--button-font-weight);
+  cursor: pointer; text-align: center;
+  transition: background-color var(--button-motion), border-color var(--button-motion);
+}
+/* Size variants scale the same foundation dimensions. */
+.ds-button--sm { min-height: calc(var(--button-min-height) * .8); padding: calc(var(--button-pad-y) * .8) calc(var(--button-pad-x) * .8); font-size: .875rem; }
+.ds-button--lg { min-height: calc(var(--button-min-height) * 1.22); padding: calc(var(--button-pad-y) * 1.22) calc(var(--button-pad-x) * 1.22); font-size: 1.125rem; }
+/* Primary variant and its interactive states. */
+.ds-button--primary { background: var(--button-primary-bg); color: var(--button-primary-text); border-color: var(--button-primary-border); }
+.ds-button--primary:hover:not(:disabled) { background: var(--button-primary-hover); color: var(--button-primary-hover-text); }
+.ds-button--primary:active:not(:disabled) { background: var(--button-primary-active); color: var(--button-primary-active-text); }
+/* Secondary variant and its interactive states. */
+.ds-button--secondary { background: var(--button-secondary-bg); color: var(--button-secondary-text); border-color: var(--button-secondary-border); }
+.ds-button--secondary:hover:not(:disabled) { background: var(--button-secondary-hover); color: var(--button-secondary-hover-text); }
+.ds-button--secondary:active:not(:disabled) { background: var(--button-secondary-active); color: var(--button-secondary-active-text); }
+/* Outline variant and its interactive states. */
+.ds-button--outline { background: var(--button-outline-bg); color: var(--button-outline-text); border-color: var(--button-outline-border); }
+.ds-button--outline:hover:not(:disabled) { background: var(--button-outline-hover); color: var(--button-outline-hover-text); }
+.ds-button--outline:active:not(:disabled) { background: var(--button-outline-active); color: var(--button-outline-active-text); }
+/* Text variant and its interactive states. */
+.ds-button--text { background: var(--button-text-bg); color: var(--button-text-text); border-color: var(--button-text-border); }
+.ds-button--text:hover:not(:disabled) { background: var(--button-text-hover); color: var(--button-text-hover-text); }
+.ds-button--text:active:not(:disabled) { background: var(--button-text-active); color: var(--button-text-active-text); }
+/* Real keyboard focus, not just the preview simulation. */
+.ds-button:focus-visible { outline: var(--button-focus-width) solid var(--button-focus); outline-offset: 3px; }
+/* Native disabled attribute prevents activation. */
+.ds-button:disabled { opacity: .55; cursor: not-allowed; }
+/* aria-pressed is only for persistent toggle buttons. */
+.ds-button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--button-focus); }
+/* aria-busy requires JavaScript behaviour and status announcements. */
+.ds-button[aria-busy="true"] { cursor: progress; }
+/* Honour user reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) { .ds-button { transition: none; } }

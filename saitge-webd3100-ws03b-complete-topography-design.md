@@ -1,13 +1,8 @@
 # WEBD 3100 — Workshop 03B
+
 ## Complete Typography Design — Type Systems, Responsive Scales & CSS Tokens
 
-**Student Workshop Guide | Fall 2026**  
-**Instructor:** Davis Boudreau  
-**Assessment:** Workshop 03A + 03B = **one combined 4% evaluation**  
-**Core track:** Approximately **3–4 hours**, including independent project application  
-**Optional deep dive:** Appendix A, approximately 1–2 additional hours, **not graded**  
-**Prerequisite:** Workshop 03A — Complete Colour Design  
-**Tools:** Figma, VS Code, browser/DevTools, Live Server, GitHub, Brightspace; Google Fonts or available system fonts (optional)
+**Student Workshop Guide | Fall 2026****Instructor:** Davis Boudreau**Assessment:** Workshop 03A + 03B = **one combined 4% evaluation****Core track:** Approximately **3–4 hours**, including independent project application**Optional deep dive:** Appendix A, approximately 1–2 additional hours, **not graded****Prerequisite:** Workshop 03A — Complete Colour Design**Tools:** Figma, VS Code, browser/DevTools, Live Server, GitHub, Brightspace; Google Fonts or available system fonts (optional)
 
 > **Your goal:** Design, implement, and verify a complete **Typography System V1**. First reproduce the guided NSCC event-management case study; then apply the same skills to your own integrated semester project. Combine Typography System V1 with your existing **Colour System V1** to establish your project's evolving **Visual Design System V1**.
 
@@ -15,10 +10,10 @@
 
 ## Choose your track
 
-| Track | Required? | Activities | Assessment |
-|---|---|---|---|
+| Track                                                 | Required?     | Activities                                                                                                                                             | Assessment                               |
+| ----------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
 | **Core — practical design and implementation** | **Yes** | Use Figma and browser tools to select fonts, establish a type scale, create responsive tokens, build and test a responsive page, apply to your project | Assessed as part of combined Workshop 03 |
-| **Appendix A — typography mathematics** | No | Calculate modular scales, `clamp()` interpolation, line-height ratios and conversion values manually | **Optional; not graded** |
+| **Appendix A — typography mathematics**        | No            | Calculate modular scales, `clamp()` interpolation, line-height ratios and conversion values manually                                                 | **Optional; not graded**           |
 
 **You must understand what the scale and responsive CSS do**, but you do not have to perform manual arithmetic to earn credit. The appendix is available for deeper study.
 
@@ -53,16 +48,16 @@ Use the **Design System Studio V4.1** interactive **Clamp Calculator** and typog
 
 ### Evidence to record in the Workshop Worksheet
 
-| Evidence | Required observation |
-|---|---|
-| Foundations | Font choices, base size, modular ratio |
-| Scale | Three foundation token values and their uses |
-| Clamp | Expression, settings, sizes at two widths |
-| Token trace | Foundation → semantic → consuming selector |
-| Figma | Text-style link and responsive examples |
-| Browser | Computed font sizes and zoom observation |
-| Revision | One readability issue and correction |
-| Project | Typography System V1 in Visual Design System V1 |
+| Evidence    | Required observation                            |
+| ----------- | ----------------------------------------------- |
+| Foundations | Font choices, base size, modular ratio          |
+| Scale       | Three foundation token values and their uses    |
+| Clamp       | Expression, settings, sizes at two widths       |
+| Token trace | Foundation → semantic → consuming selector    |
+| Figma       | Text-style link and responsive examples         |
+| Browser     | Computed font sizes and zoom observation        |
+| Revision    | One readability issue and correction            |
+| Project     | Typography System V1 in Visual Design System V1 |
 
 **Milestone connection:** Combine **Typography System V1** with WS03A **Colour System V1** for **M1 — Design Brief + Figma Style Guide (10%)**. WS03A and WS03B remain **one combined 4% workshop assessment**. The manual mathematics appendix remains **optional and ungraded**.
 
@@ -132,41 +127,41 @@ You should already have your **Colour System V1** Figma page and CSS files (`tok
 
 ### 5.2 Common type roles
 
-| Role | Job | Suggested starting treatment (not a requirement) |
-|---|---|---|
-| Display / hero | Establish the main message | Large, bold, tight-but-readable line height |
-| H1 | Page heading | One clear primary heading per page context |
-| H2 / H3 | Section structure | Consistent descending hierarchy |
-| Lead | Introduce a section | Slightly larger than body |
-| Body | Main reading content | Readable size, line height ~1.5–1.7 |
-| Small / meta | Dates, captions, supporting details | Avoid unreadably small text |
-| UI label | Forms and controls | Clear, legible, consistent |
-| Button / navigation | Actions and wayfinding | Adequate size, contrast and tap area |
+| Role                | Job                                 | Suggested starting treatment (not a requirement) |
+| ------------------- | ----------------------------------- | ------------------------------------------------ |
+| Display / hero      | Establish the main message          | Large, bold, tight-but-readable line height      |
+| H1                  | Page heading                        | One clear primary heading per page context       |
+| H2 / H3             | Section structure                   | Consistent descending hierarchy                  |
+| Lead                | Introduce a section                 | Slightly larger than body                        |
+| Body                | Main reading content                | Readable size, line height ~1.5–1.7             |
+| Small / meta        | Dates, captions, supporting details | Avoid unreadably small text                      |
+| UI label            | Forms and controls                  | Clear, legible, consistent                       |
+| Button / navigation | Actions and wayfinding              | Adequate size, contrast and tap area             |
 
 ### 5.3 Font selection: choose for the job
 
-| Design consideration | Ask yourself |
-|---|---|
-| Readability | Are letterforms distinct at body size? |
-| Tone | Does the font match the project's audience and purpose? |
-| Pairing | Can one versatile family handle both headings and body? If using two, do they work together? |
-| Performance | Can a system font work? If using web fonts, are weights and downloads limited? |
-| Language | Does the font support the characters your content needs? |
-| Accessibility | Does text remain clear at zoom and on mobile? |
-| Licensing | Are you permitted to embed or redistribute this font? |
+| Design consideration | Ask yourself                                                                                 |
+| -------------------- | -------------------------------------------------------------------------------------------- |
+| Readability          | Are letterforms distinct at body size?                                                       |
+| Tone                 | Does the font match the project's audience and purpose?                                      |
+| Pairing              | Can one versatile family handle both headings and body? If using two, do they work together? |
+| Performance          | Can a system font work? If using web fonts, are weights and downloads limited?               |
+| Language             | Does the font support the characters your content needs?                                     |
+| Accessibility        | Does text remain clear at zoom and on mobile?                                                |
+| Licensing            | Are you permitted to embed or redistribute this font?                                        |
 
 **Pragmatic rule:** Begin with one good family and a small set of weights. Add a second family only when it solves a real design problem. Avoid more than two font families for this exercise.
 
 ### 5.4 Relative units and responsive typography
 
-| CSS unit | Best use | Note |
-|---|---|---|
-| `rem` | Font sizes and spacing | Relative to root font size; respects user settings |
-| `em` | Component-relative relationships | Relative to element or parent depending on property |
-| `ch` | Readable line length | Approximate width of the `0` glyph |
-| `%` | Flexible widths | Avoid fixed page widths |
-| `clamp(min, preferred, max)` | Fluid type/spacing | Set sensible lower and upper bounds |
-| `vw` | Fluid portion inside `clamp()` | Do not use `vw` alone for essential text |
+| CSS unit                       | Best use                         | Note                                                |
+| ------------------------------ | -------------------------------- | --------------------------------------------------- |
+| `rem`                        | Font sizes and spacing           | Relative to root font size; respects user settings  |
+| `em`                         | Component-relative relationships | Relative to element or parent depending on property |
+| `ch`                         | Readable line length             | Approximate width of the `0` glyph                |
+| `%`                          | Flexible widths                  | Avoid fixed page widths                             |
+| `clamp(min, preferred, max)` | Fluid type/spacing               | Set sensible lower and upper bounds                 |
+| `vw`                         | Fluid portion inside `clamp()` | Do not use `vw` alone for essential text          |
 
 **Accessibility note:** A viewport-based fluid font expression must still allow meaningful text resizing. Test browser zoom and text-only resizing; avoid implementations that effectively prevent users from enlarging text. Body text can remain `1rem` while display headings use carefully tested fluid sizing.
 
@@ -186,6 +181,7 @@ flowchart TD
 **Foundation tokens** describe values (`--font-sans`, `--text-lg`, `--leading-body`). **Semantic/component tokens** describe their use (`--font-heading`, `--text-card-title`, `--text-body`). This keeps typography consistent even when you refine the design later.
 
 ---
+
 # PART A — REQUIRED CORE TRACK: GUIDED NSCC CASE STUDY
 
 ## 7. Task A1 — Typography critique (10–15 minutes)
@@ -203,14 +199,14 @@ flowchart TD
 
 Use the following **illustrative teaching choice** for a reproducible case study:
 
-| Token | Case-study value | Why |
-|---|---|---|
-| Heading family | `system-ui, -apple-system, "Segoe UI", Arial, sans-serif` | Fast, reliable, readable |
-| Body family | Same system stack | Simple and consistent |
-| Regular | `400` | Body copy |
-| Medium | `500` | Labels and navigation |
-| Semibold | `600` | Buttons and card titles |
-| Bold | `700` | Page and section headings |
+| Token          | Case-study value                                            | Why                       |
+| -------------- | ----------------------------------------------------------- | ------------------------- |
+| Heading family | `system-ui, -apple-system, "Segoe UI", Arial, sans-serif` | Fast, reliable, readable  |
+| Body family    | Same system stack                                           | Simple and consistent     |
+| Regular        | `400`                                                     | Body copy                 |
+| Medium         | `500`                                                     | Labels and navigation     |
+| Semibold       | `600`                                                     | Buttons and card titles   |
+| Bold           | `700`                                                     | Page and section headings |
 
 **Try a second option in Figma:** Compare this system stack with one suitable freely licensed web font, if available. You do not have to install a font or depend on a network connection to complete the case study. Record which you choose and why.
 
@@ -235,16 +231,16 @@ Use the following **illustrative teaching choice** for a reproducible case study
 
 ### Starting typography scale
 
-| Role | Mobile | Desktop | Line height | Weight |
-|---|---:|---:|---:|---:|
-| Display | 2rem | 3rem | 1.1–1.2 | 700 |
-| H1 | 1.75rem | 2.5rem | 1.15–1.25 | 700 |
-| H2 | 1.5rem | 2rem | 1.2–1.3 | 700 |
-| H3 | 1.25rem | 1.5rem | 1.25–1.35 | 600 |
-| Lead | 1.125rem | 1.25rem | 1.4–1.5 | 400 |
-| Body | 1rem | 1rem | 1.6 | 400 |
-| Small | 0.875rem | 0.875rem | 1.5 | 400 |
-| Button | 1rem | 1rem | 1.25 | 600 |
+| Role    |   Mobile |  Desktop | Line height | Weight |
+| ------- | -------: | -------: | ----------: | -----: |
+| Display |     2rem |     3rem |    1.1–1.2 |    700 |
+| H1      |  1.75rem |   2.5rem |  1.15–1.25 |    700 |
+| H2      |   1.5rem |     2rem |    1.2–1.3 |    700 |
+| H3      |  1.25rem |   1.5rem |  1.25–1.35 |    600 |
+| Lead    | 1.125rem |  1.25rem |    1.4–1.5 |    400 |
+| Body    |     1rem |     1rem |         1.6 |    400 |
+| Small   | 0.875rem | 0.875rem |         1.5 |    400 |
+| Button  |     1rem |     1rem |        1.25 |    600 |
 
 **The table is a starting system, not an automatic WCAG certification.** Maintain sufficient contrast, clear hierarchy, readable line length and comfortable spacing.
 
@@ -476,23 +472,24 @@ a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
 
 Use this checklist to evaluate **actual rendered content**, not only design mockups:
 
-| Test | What to inspect | Pass evidence |
-|---|---|---|
-| Contrast | Normal text/background in light and dark themes | WCAG AA **4.5:1** for normal text; **3:1** for large text |
-| Zoom | Browser zoom at 200% | Text remains readable; no lost content or controls |
-| Reflow | Narrow viewport around 320–375 px | No unnecessary two-dimensional scrolling for ordinary page content |
-| Line length | Paragraphs on desktop | Comfortable measure, e.g. around 60–70 characters |
-| Line height | Multi-line body text | Comfortable reading; no collisions |
-| Hierarchy | H1/H2/H3 and labels | Visual hierarchy matches semantic HTML |
-| Links | Underlines/focus indication | Links distinguishable and keyboard focus visible |
-| Theme | Light and dark | Text, links and buttons retain sufficient contrast |
-| Long text | Long title or translated copy | No clipping or broken layout |
+| Test        | What to inspect                                 | Pass evidence                                                         |
+| ----------- | ----------------------------------------------- | --------------------------------------------------------------------- |
+| Contrast    | Normal text/background in light and dark themes | WCAG AA **4.5:1** for normal text; **3:1** for large text |
+| Zoom        | Browser zoom at 200%                            | Text remains readable; no lost content or controls                    |
+| Reflow      | Narrow viewport around 320–375 px              | No unnecessary two-dimensional scrolling for ordinary page content    |
+| Line length | Paragraphs on desktop                           | Comfortable measure, e.g. around 60–70 characters                    |
+| Line height | Multi-line body text                            | Comfortable reading; no collisions                                    |
+| Hierarchy   | H1/H2/H3 and labels                             | Visual hierarchy matches semantic HTML                                |
+| Links       | Underlines/focus indication                     | Links distinguishable and keyboard focus visible                      |
+| Theme       | Light and dark                                  | Text, links and buttons retain sufficient contrast                    |
+| Long text   | Long title or translated copy                   | No clipping or broken layout                                          |
 
 **WCAG references:** [Understanding Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), [Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html), [Reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html). Avoid treating any single font-size table as proof of accessibility.
 
 Record **at least four** results in the student worksheet: light body contrast, dark body contrast, mobile/reflow, and zoom. Record one correction if needed; if everything passes, document a deliberate improvement or a stress-test finding.
 
 ---
+
 # PART B — REQUIRED CORE TRACK: YOUR INTEGRATED PROJECT
 
 ## 12. Task B1 — Write a brief typography strategy (10–15 minutes)
@@ -595,15 +592,15 @@ Your colour tokens control **what colours mean**; your typography tokens control
 
 ## 17. Checkpoints and verification
 
-| Checkpoint | NSCC case study | Own project |
-|---|---|---|
-| Font selection and rationale | System font stack tested | Justified family/fallbacks |
-| Hierarchy | Display through button/label | Project-specific hierarchy |
-| Figma | Named text styles and two frames | Typography V1 page and two frames |
-| CSS | Typography tokens + responsive page | Tokens integrated with 03A colours |
-| Responsive | 375 / 768 / 1280 px | 375 / 768 / 1280 px |
-| Accessibility | Both themes, 200% zoom, long text | Both themes, 200% zoom, long text |
-| Evidence | Screenshots, repo, Figma link | Screenshots, repo, Figma link |
+| Checkpoint                   | NSCC case study                     | Own project                        |
+| ---------------------------- | ----------------------------------- | ---------------------------------- |
+| Font selection and rationale | System font stack tested            | Justified family/fallbacks         |
+| Hierarchy                    | Display through button/label        | Project-specific hierarchy         |
+| Figma                        | Named text styles and two frames    | Typography V1 page and two frames  |
+| CSS                          | Typography tokens + responsive page | Tokens integrated with 03A colours |
+| Responsive                   | 375 / 768 / 1280 px                 | 375 / 768 / 1280 px                |
+| Accessibility                | Both themes, 200% zoom, long text   | Both themes, 200% zoom, long text  |
+| Evidence                     | Screenshots, repo, Figma link       | Screenshots, repo, Figma link      |
 
 ## 18. Reflection — complete individually
 
@@ -639,6 +636,7 @@ Answer these in the **Student Submission Template** and submit your required ref
 - [ ] Optional Appendix A **not required and not graded**.
 
 ---
+
 # APPENDIX A — OPTIONAL DEEP DIVE (NOT GRADED)
 
 **Skip this appendix without penalty.** These exercises are for students who want to understand the numerical foundations of type scales and fluid typography. **Do not submit manual calculations for marks.**
@@ -653,35 +651,35 @@ A modular scale multiplies a starting size by a ratio:
 
 Example: start with `16px`, ratio `1.25`:
 
-| Step | Calculation | Approximate size |
-|---|---|---:|
-| 0 | `16 × 1.25⁰` | 16px |
-| 1 | `16 × 1.25¹` | 20px |
-| 2 | `16 × 1.25²` | 25px |
-| 3 | `16 × 1.25³` | 31.25px |
-| 4 | `16 × 1.25⁴` | 39.06px |
+| Step | Calculation      | Approximate size |
+| ---- | ---------------- | ---------------: |
+| 0    | `16 × 1.25⁰` |             16px |
+| 1    | `16 × 1.25¹` |             20px |
+| 2    | `16 × 1.25²` |             25px |
+| 3    | `16 × 1.25³` |          31.25px |
+| 4    | `16 × 1.25⁴` |          39.06px |
 
 A modular scale is a **starting point**, not a requirement to use every size. A real UI needs practical roles and visual judgment.
 
 **Optional worksheet:** Choose a base size and ratio. Calculate four steps and decide which, if any, suit body, H3, H2 and H1.
 
 | Step | Base × ratio^step | Result | Potential role |
-|---|---|---|---|
-| 0 | | | |
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+| ---- | ------------------ | ------ | -------------- |
+| 0    |                    |        |                |
+| 1    |                    |        |                |
+| 2    |                    |        |                |
+| 3    |                    |        |                |
 
 ## A2. `rem` conversion
 
 With a `16px` root size, `24px ÷ 16px = 1.5rem`. **Do not force a fixed 16px root size** just to make calculations easy; users may choose a different default font size.
 
-| Desired approximate size | Divide by 16 | rem |
-|---|---|---|
-| 16px | 16 / 16 | 1rem |
-| 20px | 20 / 16 | 1.25rem |
-| 24px | 24 / 16 | 1.5rem |
-| 32px | 32 / 16 | 2rem |
+| Desired approximate size | Divide by 16 | rem     |
+| ------------------------ | ------------ | ------- |
+| 16px                     | 16 / 16      | 1rem    |
+| 20px                     | 20 / 16      | 1.25rem |
+| 24px                     | 24 / 16      | 1.5rem  |
+| 32px                     | 32 / 16      | 2rem    |
 
 ## A3. How `clamp()` works
 
@@ -711,4 +709,5 @@ If body text is `16px` and unitless `line-height: 1.6`, the nominal line box is 
 **Appendix A is optional and not graded.**
 
 ---
+
 **End of Workshop 03B — Complete Typography Design.**

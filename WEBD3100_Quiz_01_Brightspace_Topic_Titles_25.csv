@@ -1,0 +1,245 @@
+﻿NewQuestion,MC
+Title,Topic 01 — Website Design Critique & Usability | Q01 — Usability diagnosis
+Points,4
+QuestionText,"A registration page shows a green confirmation banner immediately after the user presses **Submit**, but the registration is still being processed and may fail. Which usability problem is most significant?"
+Option,0,Inconsistent spacing between controls
+Option,100,Misleading visibility of system status
+Option,0,Insufficient visual similarity between sections
+Option,0,Excessive recognition rather than recall
+Feedback,"Correct answer: B. System feedback must accurately represent the current state. Displaying confirmation before successful completion falsely communicates success. A processing state followed by a verified success or error message better supports visibility of system status. Other choices: A: Spacing may affect clarity but does not explain the false success signal. C: Similarity is unrelated to the misleading state. D: Recognition versus recall concerns memory demands, not premature confirmation."
+
+NewQuestion,MC
+Title,Topic 01 — Website Design Critique & Usability | Q02 — Critique with evidence
+Points,4
+QuestionText,Two homepage designs differ: Design A looks more modern; Design B allows test users to locate the application deadline more reliably. Which conclusion is best supported?
+Option,0,Design A is superior because visual novelty is the strongest usability metric.
+Option,100,"Design B is preferable for the tested task, although broader evaluation is still needed."
+Option,0,Both designs are equally usable because they contain the same information.
+Option,0,Design A is preferable unless every user prefers Design B.
+Feedback,Correct answer: B. A critique should distinguish aesthetic preference from observed task performance. More reliable deadline discovery is evidence favouring B for that task; additional tasks and users would be needed to generalize beyond it. Other choices: A: Novelty does not establish task success. C: Identical content can be organized with very different usability. D: Unanimous preference is not required to interpret observed performance.
+
+NewQuestion,MC
+Title,Topic 01 — Website Design Critique & Usability | Q03 — Error prevention
+Points,4
+QuestionText,"A user can permanently remove a saved design with one click, and there is no recovery option. Which improvement most directly addresses the risk?"
+Option,0,Increase the button's font weight.
+Option,100,Add a confirmation step or reversible undo operation.
+Option,0,Move the delete action to the top of the screen.
+Option,0,Replace the word Delete with an icon only.
+Feedback,Correct answer: B. Preventing costly mistakes and supporting recovery are central usability concerns. Confirmation for destructive actions or an undo mechanism reduces accidental irreversible loss. Other choices: A: Emphasis does not prevent accidental activation. C: Position alone does not mitigate irreversibility. D: An unlabeled icon may make the action harder to understand.
+
+NewQuestion,MS
+Title,Topic 01 — Website Design Critique & Usability | Q04 — Recognition and consistency
+Points,4
+QuestionText,A student critiques a multi-page website. Which observations provide **credible evidence of usability concerns**? **Select all that apply.**
+Option,1,The same search icon opens search on one page but opens filters on another.
+Option,1,Important account settings are accessible only through an unexplained keyboard shortcut.
+Option,0,The site's brand accent is a shade of blue rather than green.
+Option,1,A form uses unfamiliar abbreviations without labels or explanatory text.
+Feedback,"Correct answer: A, B, D. A shows inconsistent meaning for a familiar control; B imposes a memory burden and weak discoverability; D uses unexplained language that undermines recognition and clarity. These are observable usability problems rather than subjective colour preferences. Other choices: C: Accent hue alone does not establish a usability failure; evaluate contrast, meaning, consistency, and audience needs instead."
+NewQuestion,MC
+Title,Topic 01 — Website Design Critique & Usability | Q05 — Accessibility versus preference
+Points,4
+QuestionText,"A student writes, “The navigation is inaccessible because I dislike the font.” What is the best revision to the critique?"
+Option,0,“The navigation is inaccessible because its font is not fashionable.”
+Option,100,"“The navigation may be difficult to read; measure contrast, examine type size, and test keyboard navigation.”"
+Option,0,“The navigation is accessible because the labels are short.”
+Option,0,“The navigation is inaccessible whenever the font is sans-serif.”
+Feedback,"Correct answer: B. Evidence-based critique separates personal preference from testable accessibility issues. Contrast, readability, and keyboard operation can be examined and documented; dislike of a typeface alone is not an accessibility finding. Other choices: A: Fashion is subjective. C: Short labels do not establish accessibility. D: Sans-serif fonts are not inherently inaccessible."
+
+NewQuestion,MC
+Title,Topic 02 — Visual Design Principles | Q06 — Hierarchy under constraints
+Points,4
+QuestionText,"A landing page gives the main heading, decorative slogan, primary action, and legal disclaimer identical size, weight, and spacing. Which revision best establishes an actionable hierarchy?"
+Option,0,Make every element bold to increase visibility.
+Option,100,"Differentiate the heading and primary action through scale, weight, position, and spacing while keeping supporting text subordinate."
+Option,0,Apply four unrelated fonts to signal four information types.
+Option,0,Reduce all whitespace so the content fits above the fold.
+Feedback,"Correct answer: B. Hierarchy depends on deliberate differences in visual prominence. Combining scale, weight, placement, and spacing clarifies what users should read and do first without making all elements compete. Other choices: A: Equal emphasis preserves competition. C: Unrelated fonts can damage coherence. D: Removing whitespace weakens grouping and readability."
+
+NewQuestion,MC
+Title,Topic 02 — Visual Design Principles | Q07 — Proximity
+Points,4
+QuestionText,A price appears visually closer to the next product card than to the product it describes. Which principle is being violated most directly?
+Option,100,Proximity
+Option,0,Contrast
+Option,0,Repetition
+Option,0,Colour harmony
+Feedback,"Correct answer: A. Users infer relationships partly from spatial distance. The price should be grouped more closely with its own product so the association is unambiguous. Other choices: B: Contrast concerns differentiation, not the described grouping error. C: Repetition supports consistency but is not the primary issue. D: Colour harmony does not determine which card owns the price."
+
+NewQuestion,MC
+Title,Topic 02 — Visual Design Principles | Q08 — Alignment and scanning
+Points,4
+QuestionText,"In a comparison table, column headings are centred, values drift between left and right alignment, and row labels have inconsistent indents. Which improvement most directly supports scanning?"
+Option,0,Add more decorative borders to every cell.
+Option,100,Use a consistent alignment system suited to the content types.
+Option,0,Increase the number of colours used in the table.
+Option,0,Set every item to a different type size.
+Feedback,"Correct answer: B. Consistent alignment creates predictable visual paths, allowing users to compare values and locate labels efficiently. Alignment choices can vary by data type but should remain systematic. Other choices: A: Borders cannot compensate for chaotic alignment. C: Extra colours may add noise. D: Arbitrary size changes obstruct comparison."
+
+NewQuestion,MS
+Title,Topic 02 — Visual Design Principles | Q09 — Repetition and components
+Points,4
+QuestionText,Which practices reinforce visual consistency across a redesign? **Select all that apply.**
+Option,1,Reuse a defined spacing scale for related layouts.
+Option,1,Create shared button styles with documented variants.
+Option,0,Choose a new heading font independently on every page.
+Option,1,Apply consistent form-label and error-message patterns.
+Feedback,"Correct answer: A, B, D. Reusable spacing, button patterns, and form conventions create a coherent interface and reduce arbitrary decisions. Consistency also helps users transfer learned expectations between pages. Other choices: C: Independent font selection on every page undermines a coherent typography system."
+NewQuestion,MC
+Title,Topic 02 — Visual Design Principles | Q10 — Contrast as hierarchy
+Points,4
+QuestionText,"A secondary “Learn more” link visually dominates the primary “Register” button because it is larger, heavier, and more saturated. Which change is most appropriate?"
+Option,0,Remove the secondary link entirely.
+Option,100,Strengthen the primary action's relative emphasis and reduce the secondary action's competing prominence.
+Option,0,Make both actions visually identical in every state.
+Option,0,Add animation to the secondary link.
+Feedback,"Correct answer: B. Visual contrast should reinforce task priority. The primary action needs a stronger position in the hierarchy, while the secondary option should remain available without overpowering it. Other choices: A: Secondary actions may still be useful. C: Identical emphasis hides priority. D: Animation could worsen the competition."
+
+NewQuestion,MC
+Title,Topic 02 — Visual Design Principles | Q11 — Layout trade-off
+Points,4
+QuestionText,A designer wants to reduce whitespace by placing six unrelated content blocks in one dense row. What is the strongest reason to reconsider?
+Option,0,Whitespace always reduces the amount of information a website can contain.
+Option,100,"Dense presentation can weaken grouping, scanning, and prioritization even if all content technically fits."
+Option,0,Every website must use exactly three columns.
+Option,0,Whitespace has no relationship to visual design.
+Feedback,"Correct answer: B. Whitespace is functional: it helps distinguish groups, creates rhythm, and supports attention. Maximizing density can reduce clarity even when no text is omitted. Other choices: A: Whitespace can improve efficient comprehension. C: No universal three-column rule exists. D: Whitespace is a core compositional tool."
+
+NewQuestion,MC
+Title,Topic 03 — Colour Design Systems | Q12 — Foundation versus semantic tokens
+Points,4
+QuestionText,A design system contains `--blue-700: #004780` and `--color-action-primary: var(--blue-700)`. Why is this separation useful?
+Option,0,It prevents the browser from calculating colour values.
+Option,100,"It separates a palette value from its interface meaning, enabling consistent role-based changes."
+Option,0,It guarantees every use of blue meets WCAG contrast requirements.
+Option,0,It removes the need to test component states.
+Feedback,Correct answer: B. Foundation tokens name raw design values; semantic tokens express their intended roles. This indirection makes themes and global changes easier without rewriting every component reference. Other choices: A: CSS variables still resolve to values. C: Contrast depends on foreground/background combinations and context. D: Component states still require design and testing.
+
+NewQuestion,MC
+Title,Topic 03 — Colour Design Systems | Q13 — Accessible meaning
+Points,4
+QuestionText,A form indicates invalid fields using only a red outline. Which improvement best addresses the communication problem?
+Option,0,Use a more saturated red outline.
+Option,100,Add an error message and a clear text or icon cue in addition to colour.
+Option,0,Replace red with green for all invalid fields.
+Option,0,Remove the outline and leave the field unchanged.
+Feedback,Correct answer: B. Colour should not be the only means of communicating a status. A descriptive error message and additional cue make the issue perceivable to users who cannot distinguish the colour change. Other choices: A: Saturation still relies on colour alone. C: A different hue does not solve the issue. D: Removing feedback makes correction harder.
+
+NewQuestion,MC
+Title,Topic 03 — Colour Design Systems | Q14 — Contrast computation
+Points,4
+QuestionText,"Two colours have relative luminances of **0.80** and **0.05**. Using contrast ratio `(Llighter + 0.05) / (Ldarker + 0.05)`, what is their contrast ratio?"
+Option,0,4.25:1
+Option,0,7.50:1
+Option,100,8.50:1
+Option,0,16.00:1
+Feedback,"Correct answer: C. (0.80 + 0.05) / (0.05 + 0.05) = 0.85 / 0.10 = 8.50:1. This exceeds the WCAG AA 4.5:1 threshold for ordinary text, although real design decisions still depend on the actual colours and context. Other choices: A: 4.25:1 does not follow from the supplied luminances. B: 7.50:1 omits part of the lighter-side offset. D: 16.00:1 does not follow from the specified formula."
+
+NewQuestion,MC
+Title,Topic 03 — Colour Design Systems | Q15 — Colour ramp reasoning
+Points,4
+QuestionText,A designer generates an 11-step ramp from one brand hue. What is the strongest reason to review every step rather than assume the ramp is production-ready?
+Option,0,Every generated step must be used on the same page.
+Option,100,"Generated steps may vary in perceptual appearance, gamut validity, and contrast with their intended text/background pairings."
+Option,0,Colour ramps can be used only for charts.
+Option,0,A ramp is accessible whenever it contains eleven values.
+Feedback,"Correct answer: B. A generated palette is a starting point. Each step must be assessed for visual progression, supported colour output, and accessibility in actual interface roles. Other choices: A: A ramp provides options, not a mandate to use all steps. C: Ramps support many UI purposes. D: Step count does not establish accessibility."
+
+NewQuestion,MC
+Title,Topic 03 — Colour Design Systems | Q16 — RGB versus OKLCH
+Points,4
+QuestionText,A student changes a colour's RGB channel values by equal numeric amounts and assumes the result will appear equally lighter in every case. Which response is most accurate?
+Option,0,Equal RGB channel changes guarantee equal perceived lightness changes.
+Option,100,RGB is a channel representation; perceived lightness is not linearly determined by equal RGB channel adjustments.
+Option,0,RGB values cannot represent colours displayed on screens.
+Option,0,OKLCH automatically guarantees accessible contrast for all text.
+Feedback,"Correct answer: B. RGB channel arithmetic does not map directly to uniform perceived lightness. OKLCH provides a perceptually oriented lightness dimension, but any resulting palette still needs gamut and contrast testing. Other choices: A: Perceptual response is not linear in ordinary RGB channels. C: RGB is widely used for screen colours. D: OKLCH does not itself guarantee accessible pairings."
+
+NewQuestion,MS
+Title,Topic 03 — Colour Design Systems | Q17 — Theme semantics
+Points,4
+QuestionText,A design system supports light and dark themes. Which decisions support reliable theming? **Select all that apply.**
+Option,1,Map components to semantic foreground and surface tokens.
+Option,1,Test foreground/background contrast in each theme.
+Option,0,Hard-code light-theme text colours into every component.
+Option,1,"Verify interactive states, including hover, focus, and disabled appearances, in both themes."
+Feedback,"Correct answer: A, B, D. Semantic tokens enable theme-specific values; contrast must be evaluated for each actual pairing; and state variations can introduce additional readability or affordance problems. Other choices: C: Hard-coded light-theme colours make dark-theme adaptation brittle and may create unreadable combinations."
+NewQuestion,MC
+Title,Topic 03 — Colour Design Systems | Q18 — Colour decision under brand constraints
+Points,4
+QuestionText,"A brand requires a bright lime accent, but white text on that accent has inadequate contrast for normal-size button text. What is the most defensible design response?"
+Option,0,Keep white text because brand colours override readability.
+Option,100,Use a suitably contrasting text colour or adjust the button surface while preserving the brand system.
+Option,0,Remove all lime from the design system.
+Option,0,Reduce the text size to make the contrast less noticeable.
+Feedback,Correct answer: B. Brand identity and accessibility can be balanced by selecting an appropriate foreground or nearby surface variant. Test the final colour pair rather than assuming the brand accent dictates white text. Other choices: A: Brand preference does not negate contrast needs. C: The accent may remain useful in other roles. D: Smaller text generally makes readability more demanding.
+
+NewQuestion,MC
+Title,Topic 04 — Typography Design Systems | Q19 — Modular scale
+Points,4
+QuestionText,"A typography scale uses a base of **16 px** and ratio **1.25**. What is the size **two steps above** the base, before rounding?"
+Option,0,20 px
+Option,0,24 px
+Option,100,25 px
+Option,0,26 px
+Feedback,Correct answer: C. Two steps multiply the base twice: 16 × 1.25 × 1.25 = 25 px. A modular scale uses a consistent ratio rather than adding a fixed pixel amount. Other choices: A: 20 px is one step above the base. B: 24 px does not equal two 1.25 multiplications. D: 26 px is not the exact result before rounding.
+
+NewQuestion,MC
+Title,Topic 04 — Typography Design Systems | Q20 — Responsive typography interpretation
+Points,4
+QuestionText,"Consider `font-size: clamp(1rem, 2vw, 2rem);`. Which interpretation is correct?"
+Option,0,"Font size is always exactly 2vw, regardless of viewport."
+Option,100,Font size follows 2vw where possible but is bounded below by 1rem and above by 2rem.
+Option,0,Font size is always 1rem on mobile and exactly 2rem on desktop.
+Option,0,"Font size is the sum of 1rem, 2vw, and 2rem."
+Feedback,"Correct answer: B. clamp(minimum, preferred, maximum) limits the preferred value to a defined range. The viewport-based middle term varies continuously only while it falls between the limits. Other choices: A: The bounds can override 2vw. C: The exact sizes depend on viewport and root font size. D: clamp selects a bounded value; it does not add arguments."
+
+NewQuestion,MC
+Title,Topic 04 — Typography Design Systems | Q21 — Type hierarchy
+Points,4
+QuestionText,A designer uses 18 px regular-weight text for headings and 18 px bold text for paragraphs. Users struggle to identify sections. What is the best diagnosis?
+Option,100,The heading and body roles are insufficiently differentiated.
+Option,0,Paragraph text should always be heavier than headings.
+Option,0,Heading size must always be exactly twice body size.
+Option,0,Font family choice alone determines hierarchy.
+Feedback,"Correct answer: A. Hierarchy is a relationship among size, weight, spacing, and placement. Here the body may visually compete with or dominate the headings, so semantic roles need clearer visual differentiation. Other choices: B: No universal heavier-paragraph rule exists. C: A fixed 2:1 ratio is not required. D: Family choice is only one variable."
+
+NewQuestion,MC
+Title,Topic 04 — Typography Design Systems | Q22 — Line length and readability
+Points,4
+QuestionText,A desktop article stretches body text across nearly the entire 1600 px viewport. What is the strongest design rationale for constraining its measure?
+Option,100,Shorter line lengths can support easier line tracking and sustained reading.
+Option,0,Wide lines prevent browsers from displaying punctuation.
+Option,0,Body text must use the same width as every heading.
+Option,0,Constrained measure eliminates the need for line height.
+Feedback,"Correct answer: A. Very long lines can make it harder to locate the start of the next line. A reasonable reading measure, together with appropriate line height and type size, supports readability. Other choices: B: Punctuation still displays. C: Headings and body may have different measures. D: Line height remains important regardless of width."
+
+NewQuestion,MS
+Title,Topic 04 — Typography Design Systems | Q23 — Foundation and semantic type roles
+Points,4
+QuestionText,A design system defines foundation sizes `--text-step-0` through `--text-step-7` and semantic roles such as `--text-body` and `--text-h1`. Which statements are accurate? **Select all that apply.**
+Option,1,A semantic role can reference a foundation step.
+Option,1,A role such as `--text-h1` communicates intended use more directly than a raw size step.
+Option,0,Every semantic role must use a unique foundation step.
+Option,1,Updating a shared foundation value can affect multiple roles that reference it.
+Feedback,"Correct answer: A, B, D. Semantic roles map design intent to reusable foundations. Multiple roles can legitimately share a size, and changing a shared token can propagate to all dependent roles. Other choices: C: A one-to-one mapping is not required; different semantic roles may share a foundation value."
+NewQuestion,MS
+Title,Topic 04 — Typography Design Systems | Q24 — Typography accessibility
+Points,4
+QuestionText,Which choices can improve readability in a text-heavy interface? **Select all that apply.**
+Option,1,Use adequate foreground/background contrast.
+Option,1,Choose a line height appropriate to the font and reading context.
+Option,0,Force all body paragraphs into uppercase to increase scanning speed.
+Option,1,Maintain a manageable text measure and consistent paragraph spacing.
+Feedback,"Correct answer: A, B, D. Contrast, line spacing, and line measure all contribute to legibility and sustained reading. Their appropriate values depend on context and should be tested with realistic content. Other choices: C: Long uppercase passages can impair word-shape recognition and are not a general readability improvement."
+NewQuestion,MC
+Title,Topic 04 — Typography Design Systems | Q25 — Figma-to-token consistency
+Points,4
+QuestionText,"A student manually sets 23 headings to the same size in Figma, then discovers the scale needs revision. Which workflow best reduces future inconsistency?"
+Option,0,Edit all 23 headings separately each time.
+Option,100,Define a reusable Figma text style or variable-based role and apply it consistently.
+Option,0,Export the headings as images so their appearance cannot change.
+Option,0,Use a different font size on each page to avoid dependencies.
+Feedback,"Correct answer: B. Reusable styles and tokens centralize design decisions. Updating the shared definition helps maintain consistent typography across frames and prepares a clearer handoff to CSS semantic tokens. Other choices: A: Manual edits are error-prone. C: Image text is not an appropriate substitute for editable, accessible text. D: Independent values undermine system consistency."
+

@@ -1,0 +1,250 @@
+﻿NewQuestion,MC
+Title,Topic 01 — Information Architecture & Responsive Wireframing | Q01 — Content inventory
+Points,4
+QuestionText,"A redesign has 46 pages, including duplicates and obsolete notices. What should precede a new navigation hierarchy?"
+Option,0,Create a visual style guide
+Option,100,"Audit content for purpose, audience, ownership and disposition"
+Option,0,Design desktop navigation first
+Option,0,Remove every page with low traffic
+Feedback,"Correct answer: B. A content inventory and audit identify what should be kept, revised, merged or removed before organizing the site."
+
+NewQuestion,MC
+Title,Topic 01 — Information Architecture & Responsive Wireframing | Q02 — Navigation labels
+Points,4
+QuestionText,"In a usability test, visitors repeatedly overlook a link labelled “Opportunities” when seeking tuition assistance. What is the strongest IA revision?"
+Option,0,Increase its font size without changing the label
+Option,100,Replace it with a descriptive label such as “Financial Aid” and retest
+Option,0,Move it into the footer
+Option,0,Use an icon without text
+Feedback,Correct answer: B. Navigation labels should match users’ vocabulary and predict destination content; a descriptive label reduces ambiguity.
+
+NewQuestion,MC
+Title,Topic 01 — Information Architecture & Responsive Wireframing | Q03 — Hierarchy versus URL
+Points,4
+QuestionText,"A sitemap groups “Apply,” “Tuition,” and “Programs” under “Admissions.” What does this primarily represent?"
+Option,0,The mandatory server folder structure
+Option,100,An information hierarchy and navigational relationship
+Option,0,A CSS component dependency graph
+Option,0,The final database schema
+Feedback,Correct answer: B. A sitemap communicates conceptual content hierarchy; it need not dictate physical URL or server folder organization.
+
+NewQuestion,MC
+Title,Topic 01 — Information Architecture & Responsive Wireframing | Q04 — Journey failure
+Points,4
+QuestionText,A prospective student can reach an application form only after opening seven unrelated pages. Which evidence best supports restructuring?
+Option,0,The number of fonts on the homepage
+Option,100,A task walkthrough showing unnecessary navigation steps
+Option,0,The homepage image resolution
+Option,0,The website framework version
+Feedback,Correct answer: B. A task walkthrough traces the user goal and exposes friction in the navigation path.
+
+NewQuestion,MC
+Title,Topic 01 — Information Architecture & Responsive Wireframing | Q05 — Sitemap completeness
+Points,4
+QuestionText,A sitemap includes “Services” but none of its distinct destinations. What is the main problem for evaluating navigation?
+Option,0,It uses a category label
+Option,100,It conceals the intended information destinations and their relationships
+Option,0,It does not specify colour values
+Option,0,It lacks animation timing
+Feedback,"Correct answer: B. Without destinations, reviewers cannot judge whether the information structure supports user tasks."
+
+NewQuestion,MC
+Title,Topic 01 — Information Architecture & Responsive Wireframing | Q06 — Content priority
+Points,4
+QuestionText,"On a mobile wireframe for an emergency campus closure, which content should be most prominent?"
+Option,0,A decorative campus image
+Option,100,The closure status and immediate instructions
+Option,0,A full archive of historical notices
+Option,0,A social media feed
+Feedback,"Correct answer: B. High-priority, time-sensitive tasks should lead the content hierarchy, especially with limited screen space."
+
+NewQuestion,MC
+Title,Topic 02 — Responsive UI Design & Figma Prototyping | Q07 — Low fidelity
+Points,4
+QuestionText,Why should a team validate low-fidelity wireframes before creating polished screens?
+Option,0,Wireframes guarantee accessibility
+Option,100,They expose layout and task-flow problems before visual polish becomes costly
+Option,0,They replace all user testing
+Option,0,They establish production CSS automatically
+Feedback,Correct answer: B. Early low-fidelity validation makes structural revisions inexpensive and prevents visual detail from obscuring flow problems.
+
+NewQuestion,MC
+Title,Topic 02 — Responsive UI Design & Figma Prototyping | Q08 — Responsive adaptation
+Points,4
+QuestionText,A desktop layout has a three-column card grid. What is the most defensible mobile-first approach?
+Option,0,Keep three columns at every width
+Option,100,Start with a readable single column and expand when space permits
+Option,0,Hide two-thirds of the cards on phones
+Option,0,Scale the entire desktop canvas down
+Feedback,Correct answer: B. Responsive design adapts layout to available space while retaining access to meaningful content.
+
+NewQuestion,MC
+Title,Topic 02 — Responsive UI Design & Figma Prototyping | Q09 — Breakpoint decision
+Points,4
+QuestionText,What is the best reason to introduce a responsive breakpoint?
+Option,0,A device brand has a new model
+Option,100,The layout or content begins to fail at a particular width
+Option,0,Every 100 pixels requires a breakpoint
+Option,0,The design tool offers preset frame names
+Feedback,Correct answer: B. Breakpoints should respond to content and layout needs rather than arbitrary device labels.
+
+NewQuestion,MC
+Title,Topic 02 — Responsive UI Design & Figma Prototyping | Q10 — Wireframe annotation
+Points,4
+QuestionText,A desktop navigation becomes a menu button on mobile. What annotation best supports handoff?
+Option,0,“Make mobile better”
+Option,100,"Describe trigger, expanded state, keyboard access and navigation behavior"
+Option,0,Specify only the icon colour
+Option,0,List the designer’s favourite menu patterns
+Feedback,Correct answer: B. Behavioral annotations clarify interaction and accessibility expectations beyond static screenshots.
+
+NewQuestion,MC
+Title,Topic 02 — Responsive UI Design & Figma Prototyping | Q11 — Task flow
+Points,4
+QuestionText,A wireframe shows a “Register” button but no confirmation or error state. What is missing?
+Option,0,A larger heading
+Option,100,A complete task flow with system feedback
+Option,0,A second accent colour
+Option,0,A grid overlay
+Feedback,"Correct answer: B. A task flow must include outcome and error feedback, not merely the initiating action."
+
+NewQuestion,MC
+Title,Topic 02 — Responsive UI Design & Figma Prototyping | Q12 — Figma variants
+Points,4
+QuestionText,"A component has default, hover, focus and disabled variants. What is the primary benefit?"
+Option,0,It guarantees correct HTML semantics
+Option,100,It documents consistent interactive states for implementation
+Option,0,It eliminates responsive testing
+Option,0,It makes every state keyboard-accessible automatically
+Feedback,Correct answer: B. Component variants communicate intended visual and interaction states consistently; code and testing are still required.
+
+NewQuestion,MC
+Title,Topic 02 — Responsive UI Design & Figma Prototyping | Q13 — Prototype limitations
+Points,4
+QuestionText,A clickable Figma prototype successfully demonstrates navigation. What claim is NOT justified by that result alone?
+Option,0,The intended screen sequence is represented
+Option,0,The navigation can be reviewed with participants
+Option,100,The deployed HTML site meets keyboard accessibility requirements
+Option,0,The prototype supports early flow testing
+Feedback,"Correct answer: C. Figma interactions do not prove that production HTML semantics, keyboard behavior or accessibility are correct."
+
+NewQuestion,MC
+Title,Topic 03 — Design-to-Code & Responsive Implementation | Q14 — Semantic controls
+Points,4
+QuestionText,A design shows a control that submits a form. Which HTML element is most appropriate?
+Option,0,A clickable div with no keyboard handling
+Option,100,"A button with type=""submit"""
+Option,0,A span with a pointer cursor
+Option,0,An anchor without an href
+Feedback,"Correct answer: B. A submit button provides native semantics, keyboard activation and form submission behavior."
+
+NewQuestion,MC
+Title,Topic 03 — Design-to-Code & Responsive Implementation | Q15 — CSS tokens
+Points,4
+QuestionText,A site uses the same accent colour in 18 components. What implementation most improves maintainability?
+Option,0,Repeat the hex value in every selector
+Option,100,Define a CSS custom property and reference it consistently
+Option,0,Use inline styles on each element
+Option,0,Convert every component into an image
+Feedback,Correct answer: B. A shared CSS custom property centralizes a design decision and makes coordinated changes easier.
+
+NewQuestion,MC
+Title,Topic 03 — Design-to-Code & Responsive Implementation | Q16 — Flex versus grid
+Points,4
+QuestionText,"A header has a logo, navigation group and utility actions arranged along one main axis. Which CSS tool is the best default?"
+Option,100,Flexbox
+Option,0,CSS columns
+Option,0,Absolute positioning for every child
+Option,0,A background image
+Feedback,Correct answer: A. Flexbox is well suited to one-dimensional alignment and distribution of header groups.
+
+NewQuestion,MC
+Title,Topic 03 — Design-to-Code & Responsive Implementation | Q17 — Responsive grid
+Points,4
+QuestionText,"A card collection should automatically fit as many readable columns as available, with each card at least 16rem wide when possible. Which CSS is most suitable?"
+Option,100,"grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr))"
+Option,0,"grid-template-columns: repeat(6, 1fr)"
+Option,0,position: absolute on every card
+Option,0,width: 16rem on the entire grid
+Feedback,Correct answer: A. Auto-fit with minmax allows responsive column counts while maintaining a practical minimum card width.
+
+NewQuestion,MC
+Title,Topic 03 — Design-to-Code & Responsive Implementation | Q18 — Mobile overflow
+Points,4
+QuestionText,A 375px viewport displays a horizontal scrollbar after adding a hero image. What should be investigated first?
+Option,100,Whether an element or fixed width exceeds its container
+Option,0,Whether the body font is serif
+Option,0,Whether the page has too few headings
+Option,0,Whether the browser tab has a favicon
+Feedback,"Correct answer: A. Horizontal overflow often results from fixed widths, oversized media or unbreakable content; inspect the offending element."
+
+NewQuestion,MC
+Title,Topic 03 — Design-to-Code & Responsive Implementation | Q19 — Figma fidelity
+Points,4
+QuestionText,"A Figma button uses a 12px radius and 16px horizontal padding, but the coded version differs. What is the best corrective workflow?"
+Option,0,Adjust random values until it looks acceptable
+Option,100,"Inspect the design specifications, map them to reusable CSS tokens and compare states"
+Option,0,Export the button as a bitmap
+Option,0,Remove the Figma component
+Feedback,Correct answer: B. A disciplined design-to-code workflow traces visual decisions to reusable implementation values and verifies the result.
+
+NewQuestion,MC
+Title,Topic 03 — Design-to-Code & Responsive Implementation | Q20 — Deployment distinction
+Points,4
+QuestionText,"A student pushes HTML/CSS to GitHub, but the project has no public URL. Which statement is accurate?"
+Option,0,GitHub automatically proves the site is deployed
+Option,100,The repository stores source; GitHub Pages must be configured and verified for publication
+Option,0,Figma is the deployment host
+Option,0,A README alone makes the site public
+Feedback,Correct answer: B. A GitHub repository and a GitHub Pages deployment serve different purposes; publishing must be enabled and checked.
+
+NewQuestion,MC
+Title,Topic 04 — Accessibility Audit & Remediation | Q21 — Keyboard focus
+Points,4
+QuestionText,A custom navigation menu opens on mouse hover but not by keyboard. What is the most important remediation?
+Option,0,Increase the hover animation duration
+Option,100,Implement keyboard-operable controls and visible focus indication
+Option,0,Replace text labels with icons
+Option,0,Add a larger background image
+Feedback,"Correct answer: B. Keyboard users need operable controls, focus visibility and a way to open and close the menu."
+
+NewQuestion,MC
+Title,Topic 04 — Accessibility Audit & Remediation | Q22 — Contrast scope
+Points,4
+QuestionText,"A primary button passes text contrast, but its focus indicator blends into the background. What follows?"
+Option,0,The button is fully accessible because text contrast passes
+Option,100,The focus indicator requires separate visibility and contrast evaluation
+Option,0,Focus indicators are optional for keyboard users
+Option,0,Changing font weight fixes focus visibility
+Feedback,Correct answer: B. Readable text does not establish that keyboard focus is perceivable; the focus indicator must also be assessed.
+
+NewQuestion,MC
+Title,Topic 04 — Accessibility Audit & Remediation | Q23 — Alternative text
+Points,4
+QuestionText,A decorative wave graphic appears next to a heading and conveys no information. What is the appropriate image treatment?
+Option,0,Use alt text repeating the heading
+Option,100,Use an empty alt attribute so assistive technology can skip it
+Option,0,Use the file name as alt text
+Option,0,Remove the heading and rely on the image
+Feedback,Correct answer: B. Purely decorative images should normally have empty alternative text to avoid redundant announcements.
+
+NewQuestion,MC
+Title,Topic 04 — Accessibility Audit & Remediation | Q24 — Form error
+Points,4
+QuestionText,A required email field fails validation. Which feedback most supports accessible recovery?
+Option,0,Show a red border only
+Option,100,Provide a specific text error linked to the field and preserve entered data
+Option,0,Clear the entire form
+Option,0,Display “Invalid” in an unrelated footer
+Feedback,"Correct answer: B. Errors should be communicated in text, associated with the relevant input and help users correct the issue."
+
+NewQuestion,MC
+Title,Topic 04 — Accessibility Audit & Remediation | Q25 — Audit evidence
+Points,4
+QuestionText,An accessibility audit reports “keyboard navigation is broken.” What evidence makes the finding actionable?
+Option,0,A screenshot of the homepage only
+Option,100,"Affected control, reproduction steps, expected behavior, observed behavior and proposed fix"
+Option,0,The developer’s preferred browser
+Option,0,A general recommendation to improve accessibility
+Feedback,Correct answer: B. Actionable audit findings identify a reproducible issue and a verifiable remediation path.
+
